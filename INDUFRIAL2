@@ -1,1088 +1,282 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Indufrial | Executive Decision Board</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#050c16;
-      --bg2:#0a1422;
-      --panel:#0d1828;
-      --panel-2:#101f34;
-      --stroke:rgba(124,156,205,.18);
-      --stroke-strong:rgba(113,184,255,.42);
-      --text:#edf4ff;
-      --muted:#92a7c9;
-      --blue:#5aa2ff;
-      --cyan:#66ddff;
-      --amber:#fbb86d;
-      --green:#57d6a0;
-      --shadow:0 24px 60px rgba(0,0,0,.42);
-      --radius:26px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;
-      padding:0;
-      font-family:'Inter',sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at 8% 10%, rgba(90,162,255,.16), transparent 20%),
-        radial-gradient(circle at 88% 8%, rgba(102,221,255,.12), transparent 18%),
-        radial-gradient(circle at 50% 100%, rgba(251,184,109,.06), transparent 22%),
-        linear-gradient(180deg, #040a13 0%, #07111d 100%);
-      scroll-behavior:smooth;
-    }
-
-    .wrap{
-      width:min(1280px, calc(100% - 28px));
-      margin:0 auto;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter: blur(14px);
-      background:rgba(5,12,22,.68);
-      border-bottom:1px solid rgba(255,255,255,.05);
-    }
-
-    .topbar-inner{
-      min-height:72px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      min-width:0;
-    }
-
-    .logo{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      font-weight:900;
-      color:#fff;
-      background:linear-gradient(135deg,#1d4ed8,#2563eb 58%, #38bdf8);
-      box-shadow:0 14px 30px rgba(37,99,235,.35);
-      flex-shrink:0;
-    }
-
-    .eyebrow{
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.28em;
-      color:var(--muted);
-      font-weight:800;
-      margin-bottom:4px;
-      white-space:nowrap;
-    }
-
-    .title-sm{
-      font-size:14px;
-      font-weight:900;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .hero{
-      padding:34px 0 20px;
-    }
-
-    .hero-shell{
-      position:relative;
-      overflow:hidden;
-      border-radius:34px;
-      border:1px solid rgba(255,255,255,.06);
-      background:
-        linear-gradient(180deg, rgba(15,26,43,.96), rgba(8,15,28,.96));
-      box-shadow:var(--shadow);
-    }
-
-    .hero-shell::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(90deg, transparent 0%, rgba(255,255,255,.03) 50%, transparent 100%);
-      pointer-events:none;
-    }
-
-    .hero-grid{
-      position:relative;
-      z-index:1;
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:0;
-    }
-
-    .hero-left{
-      padding:34px 30px 30px;
-      border-right:1px solid rgba(255,255,255,.06);
-    }
-
-    .hero-right{
-      padding:24px;
-      display:grid;
-      gap:14px;
-      align-content:start;
-    }
-
-    .hero-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.035);
-      color:#c8daf8;
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-    }
-
-    h1{
-      margin:18px 0 0;
-      font-size:clamp(38px,6vw,78px);
-      line-height:.92;
-      letter-spacing:-.055em;
-      font-weight:900;
-      max-width:11ch;
-    }
-
-    .lead{
-      margin:18px 0 0;
-      max-width:58ch;
-      color:#c2d2ea;
-      line-height:1.65;
-      font-size:clamp(15px,2vw,18px);
-    }
-
-    .hero-stats{
-      margin-top:24px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-
-    .stat{
-      border:1px solid rgba(255,255,255,.07);
-      background:rgba(255,255,255,.03);
-      border-radius:22px;
-      padding:16px;
-    }
-
-    .stat-k{
-      font-size:10px;
-      letter-spacing:.24em;
-      text-transform:uppercase;
-      color:var(--muted);
-      font-weight:800;
-      margin-bottom:8px;
-    }
-
-    .stat-v{
-      font-size:16px;
-      font-weight:800;
-      line-height:1.3;
-    }
-
-    .signal{
-      border:1px solid rgba(255,255,255,.07);
-      background:rgba(255,255,255,.028);
-      border-radius:24px;
-      padding:18px;
-    }
-
-    .signal-k{
-      font-size:10px;
-      letter-spacing:.24em;
-      text-transform:uppercase;
-      color:#8db7ff;
-      font-weight:800;
-      margin-bottom:8px;
-    }
-
-    .signal-v{
-      margin:0;
-      font-size:15px;
-      line-height:1.55;
-      color:#e7f0ff;
-      font-weight:700;
-    }
-
-    .section{
-      padding:18px 0 30px;
-    }
-
-    .board-shell{
-      position:relative;
-      overflow:hidden;
-      border-radius:34px;
-      border:1px solid rgba(255,255,255,.06);
-      background:
-        linear-gradient(180deg, rgba(13,24,40,.96), rgba(8,14,24,.96));
-      box-shadow:var(--shadow);
-      padding:24px;
-    }
-
-    .board-shell::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg, transparent 0 88%, rgba(255,255,255,.02) 100%);
-      pointer-events:none;
-    }
-
-    .board-head{
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-      margin-bottom:22px;
-      position:relative;
-      z-index:2;
-    }
-
-    .board-title{
-      margin:0;
-      font-size:clamp(26px,4vw,40px);
-      line-height:1;
-      letter-spacing:-.04em;
-      font-weight:900;
-    }
-
-    .board-sub{
-      margin:10px 0 0;
-      color:var(--muted);
-      max-width:68ch;
-      line-height:1.6;
-      font-size:14px;
-    }
-
-    .board-note{
-      padding:10px 12px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.03);
-      color:#dbe9ff;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-    }
-
-    .flow-area{
-      position:relative;
-      padding:8px 0 4px;
-    }
-
-    .flow-lines{
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      opacity:.95;
-    }
-
-    .board-grid{
-      position:relative;
-      z-index:2;
-      display:grid;
-      grid-template-columns:repeat(12, 1fr);
-      gap:16px;
-      align-items:stretch;
-    }
-
-    .module{
-      position:relative;
-      min-height:168px;
-      border-radius:28px;
-      border:1px solid rgba(255,255,255,.08);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.022));
-      cursor:pointer;
-      overflow:hidden;
-      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
-      box-shadow:0 14px 34px rgba(0,0,0,.18);
-      isolation:isolate;
-    }
-
-    .module::before{
-      content:"";
-      position:absolute;
-      inset:auto -10% -20% auto;
-      width:130px;
-      height:130px;
-      border-radius:999px;
-      background:radial-gradient(circle, rgba(90,162,255,.16), transparent 68%);
-      z-index:-1;
-    }
-
-    .module::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.04), transparent 46%);
-      pointer-events:none;
-    }
-
-    .module:hover,
-    .module.active{
-      transform:translateY(-4px);
-      border-color:var(--stroke-strong);
-      background:
-        linear-gradient(180deg, rgba(18,35,60,.82), rgba(12,24,42,.82));
-      box-shadow:0 18px 42px rgba(2,8,18,.44);
-    }
-
-    .module-inner{
-      height:100%;
-      padding:18px 18px 16px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:14px;
-    }
-
-    .module-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:10px;
-    }
-
-    .n{
-      width:46px;
-      height:46px;
-      border-radius:16px;
-      display:grid;
-      place-items:center;
-      font-size:16px;
-      font-weight:900;
-      color:#fff;
-      box-shadow:0 12px 28px rgba(18,35,60,.28);
-    }
-
-    .micro{
-      font-size:10px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:var(--muted);
-      font-weight:800;
-      margin-top:4px;
-      text-align:right;
-    }
-
-    .module h3{
-      margin:0;
-      font-size:20px;
-      line-height:1.04;
-      letter-spacing:-.03em;
-      font-weight:900;
-      max-width:12ch;
-    }
-
-    .module p{
-      margin:0;
-      color:#c0d0e9;
-      font-size:14px;
-      line-height:1.52;
-    }
-
-    .m1,.m2,.m3,.m4,.m5,.m6,.m7,.m8,.m9,.m10,.m11{grid-column:span 4;}
-    .m1 .n{background:linear-gradient(135deg,#2563eb,#38bdf8)}
-    .m2 .n{background:linear-gradient(135deg,#0ea5e9,#06b6d4)}
-    .m3 .n{background:linear-gradient(135deg,#2563eb,#60a5fa)}
-    .m4 .n{background:linear-gradient(135deg,#64748b,#334155)}
-    .m5 .n{background:linear-gradient(135deg,#0f766e,#10b981)}
-    .m6 .n{background:linear-gradient(135deg,#d97706,#f59e0b)}
-    .m7 .n{background:linear-gradient(135deg,#0ea5e9,#2563eb)}
-    .m8 .n{background:linear-gradient(135deg,#059669,#34d399)}
-    .m9 .n{background:linear-gradient(135deg,#ea580c,#fb923c)}
-    .m10 .n{background:linear-gradient(135deg,#2563eb,#1d4ed8)}
-    .m11 .n{background:linear-gradient(135deg,#22c55e,#16a34a)}
-
-    .detail-shell{
-      margin-top:18px;
-      overflow:hidden;
-      border-radius:34px;
-      border:1px solid rgba(255,255,255,.06);
-      background:
-        linear-gradient(180deg, rgba(13,24,40,.98), rgba(8,14,24,.98));
-      box-shadow:var(--shadow);
-    }
-
-    .detail-top{
-      padding:22px 22px 0;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .detail-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.035);
-      border:1px solid rgba(255,255,255,.08);
-      color:#d9e7fd;
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-    }
-
-    .detail-actions{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      appearance:none;
-      border:none;
-      cursor:pointer;
-      border-radius:18px;
-      padding:13px 16px;
-      font:inherit;
-      font-weight:800;
-      transition:transform .18s ease, background .18s ease, border-color .18s ease, opacity .18s ease;
-    }
-
-    .btn:hover{transform:translateY(-1px)}
-    .btn-primary{
-      background:linear-gradient(135deg,#2563eb,#38bdf8);
-      color:#fff;
-      box-shadow:0 14px 26px rgba(37,99,235,.3);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,.03);
-      color:#d9e8ff;
-      border:1px solid rgba(255,255,255,.08);
-    }
-
-    .detail-grid{
-      display:grid;
-      grid-template-columns:1.03fr .97fr;
-      gap:18px;
-      padding:20px 22px 22px;
-    }
-
-    .detail-card{
-      border-radius:28px;
-      border:1px solid rgba(255,255,255,.07);
-      background:rgba(255,255,255,.028);
-      padding:22px;
-      min-height:100%;
-    }
-
-    .detail-card h2{
-      margin:0 0 10px;
-      font-size:clamp(28px,4vw,44px);
-      line-height:.96;
-      letter-spacing:-.04em;
-      font-weight:900;
-      max-width:14ch;
-    }
-
-    .detail-card p{
-      margin:0;
-      color:#c7d7ee;
-      line-height:1.66;
-      font-size:15px;
-    }
-
-    .meta{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
-
-    .meta-box{
-      padding:16px;
-      border-radius:20px;
-      background:rgba(255,255,255,.025);
-      border:1px solid rgba(255,255,255,.07);
-    }
-
-    .meta-k{
-      margin:0 0 7px;
-      font-size:10px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:var(--muted);
-      font-weight:800;
-    }
-
-    .meta-v{
-      margin:0;
-      font-weight:800;
-      line-height:1.48;
-      color:#eef5ff;
-      font-size:14px;
-    }
-
-    .detail-list{
-      display:grid;
-      gap:12px;
-    }
-
-    .detail-item{
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,.07);
-      background:rgba(255,255,255,.025);
-      padding:16px;
-    }
-
-    .detail-item .k{
-      margin:0 0 8px;
-      font-size:10px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      font-weight:800;
-      color:#8db7ff;
-    }
-
-    .detail-item .v{
-      margin:0;
-      color:#ebf3ff;
-      font-weight:700;
-      line-height:1.55;
-      font-size:14px;
-    }
-
-    .footer{
-      padding:18px 0 34px;
-      text-align:center;
-      color:var(--muted);
-      font-size:12px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-    }
-
-    @media (max-width: 1080px){
-      .hero-grid,
-      .detail-grid{
-        grid-template-columns:1fr;
-      }
-      .hero-left{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
-      .m1,.m2,.m3,.m4,.m5,.m6,.m7,.m8,.m9,.m10,.m11{grid-column:span 6;}
-      .flow-lines{display:none}
-    }
-
-    @media (max-width: 720px){
-      .wrap{width:min(100% - 18px, 1280px)}
-      .topbar-inner{min-height:66px}
-      .hero-left,.hero-right,.board-shell,.detail-top,.detail-grid{padding-left:16px;padding-right:16px}
-      .hero-shell,.board-shell,.detail-shell{border-radius:24px}
-      .hero-stats{grid-template-columns:1fr}
-      .board-grid{grid-template-columns:1fr;gap:12px}
-      .m1,.m2,.m3,.m4,.m5,.m6,.m7,.m8,.m9,.m10,.m11{grid-column:auto}
-      .module{min-height:144px;border-radius:24px}
-      .module h3{font-size:18px;max-width:none}
-      .detail-card{padding:18px}
-      .meta{grid-template-columns:1fr}
-      .btn{width:100%}
-      .detail-actions{width:100%}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indufrial | Decision Board Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        'premium-gold': '#d4af37',
+                        'premium-blue': '#00d4ff',
+                        'premium-bg': '#05070a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            background-color: #05070a; 
+            color: #e2e8f0; 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            background: rgba(15, 23, 42, 0.8);
+            transform: translateY(-2px);
+        }
+        .modal-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(2, 6, 23, 0.8);
+        }
+        .text-gradient {
+            background: linear-gradient(90deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .status-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            box-shadow: 0 0 8px currentColor;
+        }
+    </style>
 </head>
-<body>
-  <div class="topbar">
-    <div class="wrap topbar-inner">
-      <div class="brand">
-        <div class="logo">I</div>
-        <div>
-          <div class="eyebrow">Executive Decision Board</div>
-          <div class="title-sm">Indufrial · Canal comercial digital</div>
+<body class="p-4 md:p-8">
+
+    <!-- Top Navigation / Brand -->
+    <nav class="max-w-6xl mx-auto flex justify-between items-center mb-12">
+        <div class="flex items-center gap-4">
+            <div class="h-10 w-[2px] bg-gradient-to-b from-premium-blue to-transparent"></div>
+            <div>
+                <h1 class="text-xl font-extrabold tracking-tighter text-white uppercase">Indufrial <span class="text-premium-blue">.</span></h1>
+                <p class="text-[9px] font-mono text-slate-500 uppercase tracking-[0.4em]">Executive Decision Board</p>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+        <div class="text-right">
+            <p class="text-[10px] font-mono text-slate-400">ESTRATEGO_CORE / V.4.0</p>
+            <p class="text-[9px] text-premium-blue font-bold uppercase tracking-widest">Ready for Deployment</p>
+        </div>
+    </nav>
 
-  <header class="hero">
-    <div class="wrap hero-shell">
-      <div class="hero-grid">
-        <section class="hero-left">
-          <div class="hero-badge">Arquitectura ejecutiva de decisión</div>
-          <h1>Lo que presidencia necesita ver para decidir.</h1>
-          <p class="lead">
-            Este tablero responde, en una sola estructura visual, las preguntas críticas sobre creación, alcance, tiempos, riesgo, minivictorias y arranque del canal comercial digital de Indufrial.
-          </p>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <div class="stat-k">Frentes de avance</div>
-              <div class="stat-v">6 frentes iniciales</div>
+    <!-- Main Grid -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Question Block 1 -->
+        <div class="glass-panel p-6 rounded-2xl cursor-pointer group" onclick="openModal('q1')">
+            <span class="text-[10px] font-bold text-premium-blue/60 mb-2 block uppercase tracking-widest">Impacto Real</span>
+            <h2 class="text-lg font-semibold text-white leading-tight mb-4">¿Qué problema real resuelve esto en Indufrial?</h2>
+            <div class="flex items-center justify-between text-slate-500 group-hover:text-premium-blue transition-colors">
+                <span class="text-[11px] font-mono italic">Ver Tesis Central</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </div>
-            <div class="stat">
-              <div class="stat-k">Hitos de control</div>
-              <div class="stat-v">4 hitos verificables</div>
-            </div>
-            <div class="stat">
-              <div class="stat-k">Resultado esperado</div>
-              <div class="stat-v">Base real para arrancar</div>
-            </div>
-          </div>
-        </section>
+        </div>
 
-        <aside class="hero-right">
-          <div class="signal">
-            <div class="signal-k">Qué resuelve</div>
-            <p class="signal-v">Cómo crear correctamente el canal desde cero, sin que nazca con vacíos operativos ni desorden interno.</p>
-          </div>
-          <div class="signal">
-            <div class="signal-k">Qué deja instalado</div>
-            <p class="signal-v">Una base estructurada de implementación, criterios de control y activación del primer frente de ejecución.</p>
-          </div>
-          <div class="signal">
-            <div class="signal-k">Cómo se usa</div>
-            <p class="signal-v">Toque cualquier módulo. El panel inferior abre la respuesta ejecutiva concreta para esa duda de presidencia.</p>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </header>
+        <!-- Question Block 2 -->
+        <div class="glass-panel p-6 rounded-2xl cursor-pointer group" onclick="openModal('q2')">
+            <span class="text-[10px] font-bold text-premium-blue/60 mb-2 block uppercase tracking-widest">Urgencia</span>
+            <h2 class="text-lg font-semibold text-white leading-tight mb-4">¿Por qué vale la pena hacerlo ahora mismo?</h2>
+            <div class="flex items-center justify-between text-slate-500 group-hover:text-premium-blue transition-colors">
+                <span class="text-[11px] font-mono italic">Opportunity Window</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+        </div>
 
-  <main class="section">
-    <div class="wrap">
-      <section class="board-shell">
-        <div class="board-head">
-          <div>
-            <div class="eyebrow">Decision architecture</div>
-            <h2 class="board-title">11 preguntas críticas que este tablero debe resolver</h2>
-            <p class="board-sub">
-              Cada módulo responde una duda concreta sobre valor, método, recorrido, tiempo, minivictorias, velocidad, riesgo y condiciones de arranque.
+        <!-- Question Block 3 -->
+        <div class="glass-panel p-6 rounded-2xl cursor-pointer group" onclick="openModal('q3')">
+            <span class="text-[10px] font-bold text-premium-blue/60 mb-2 block uppercase tracking-widest">Metodología</span>
+            <h2 class="text-lg font-semibold text-white leading-tight mb-4">¿Qué va a hacer en general y cómo lo va a hacer?</h2>
+            <div class="flex items-center justify-between text-slate-500 group-hover:text-premium-blue transition-colors">
+                <span class="text-[11px] font-mono italic">Workflow Strategy</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+        </div>
+
+        <!-- Question Block 4 -->
+        <div class="glass-panel p-6 rounded-2xl cursor-pointer group" onclick="openModal('q4')">
+            <span class="text-[10px] font-bold text-premium-blue/60 mb-2 block uppercase tracking-widest">Cronograma</span>
+            <h2 class="text-lg font-semibold text-white leading-tight mb-4">¿Cuántas etapas tiene y cuánto tiempo toma?</h2>
+            <div class="flex items-center justify-between text-slate-500 group-hover:text-premium-blue transition-colors">
+                <span class="text-[11px] font-mono italic">Timeframe & Phases</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+        </div>
+
+        <!-- Question Block 5 -->
+        <div class="glass-panel p-6 rounded-2xl cursor-pointer group" onclick="openModal('q5')">
+            <span class="text-[10px] font-bold text-premium-blue/60 mb-2 block uppercase tracking-widest">Riesgos</span>
+            <h2 class="text-lg font-semibold text-white leading-tight mb-4">¿Qué riesgos se reducen al arrancar así?</h2>
+            <div class="flex items-center justify-between text-slate-500 group-hover:text-premium-blue transition-colors">
+                <span class="text-[11px] font-mono italic">Risk Mitigation</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+        </div>
+
+        <!-- Question Block 6 -->
+        <div class="glass-panel p-6 rounded-2xl cursor-pointer group border-premium-blue/20 bg-premium-blue/5" onclick="openModal('q6')">
+            <span class="text-[10px] font-bold text-premium-blue mb-2 block uppercase tracking-widest">Final Output</span>
+            <h2 class="text-lg font-semibold text-white leading-tight mb-4">¿Qué me va a entregar exactamente al final?</h2>
+            <div class="flex items-center justify-between text-premium-blue transition-colors">
+                <span class="text-[11px] font-mono italic font-bold tracking-widest uppercase">Resultados Tangibles</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Metrics -->
+    <section class="max-w-6xl mx-auto mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="p-4 border-l border-white/10">
+            <p class="text-[9px] uppercase tracking-widest text-slate-500">Avance Real</p>
+            <p class="text-xl font-bold text-white">Semana 2</p>
+        </div>
+        <div class="p-4 border-l border-white/10">
+            <p class="text-[9px] uppercase tracking-widest text-slate-500">Dependencia</p>
+            <p class="text-xl font-bold text-white">Data Interna</p>
+        </div>
+        <div class="p-4 border-l border-white/10">
+            <p class="text-[9px] uppercase tracking-widest text-slate-500">Enfoque</p>
+            <p class="text-xl font-bold text-premium-blue uppercase italic">Ejecución</p>
+        </div>
+        <div class="p-4 border-l border-white/10">
+            <p class="text-[9px] uppercase tracking-widest text-slate-500">Status</p>
+            <p class="text-xl font-bold text-green-500 uppercase italic">READY</p>
+        </div>
+    </section>
+
+    <!-- Modales (Arquitectura de Preguntas) -->
+
+    <!-- Q1 -->
+    <div id="q1" class="modal fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('q1')">
+        <div class="bg-slate-900 w-full max-w-lg rounded-3xl p-8 border border-white/10" onclick="event.stopPropagation()">
+            <h3 class="text-premium-blue font-mono text-xs uppercase tracking-[0.3em] mb-4">Misión Estratégica</h3>
+            <p class="text-xl text-white font-semibold leading-relaxed mb-6">Resuelve la ceguera operativa.</p>
+            <p class="text-slate-400 text-sm leading-relaxed">
+                Elimina el crecimiento desordenado. Evita que Indufrial agote recursos en ventas que la operación no puede procesar, asegurando que cada nuevo cliente sea rentable y escalable.
             </p>
-          </div>
-          <div class="board-note">Toque un módulo</div>
+            <button onclick="closeModal('q1')" class="mt-8 w-full py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl font-bold text-xs uppercase tracking-widest transition-all">Cerrar Dashboard</button>
         </div>
-
-        <div class="flow-area">
-          <svg class="flow-lines" viewBox="0 0 1200 760" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M190 95 C 285 95, 285 95, 380 95" stroke="rgba(102,221,255,.16)" stroke-width="2.5" fill="none"/>
-            <path d="M590 95 C 685 95, 685 95, 780 95" stroke="rgba(102,221,255,.16)" stroke-width="2.5" fill="none"/>
-
-            <path d="M980 150 C 980 205, 980 205, 980 260" stroke="rgba(102,221,255,.16)" stroke-width="2.5" fill="none"/>
-            <path d="M780 315 C 685 315, 685 315, 590 315" stroke="rgba(102,221,255,.16)" stroke-width="2.5" fill="none"/>
-            <path d="M380 315 C 285 315, 285 315, 190 315" stroke="rgba(102,221,255,.16)" stroke-width="2.5" fill="none"/>
-
-            <path d="M190 370 C 190 425, 190 425, 190 480" stroke="rgba(102,221,255,.16)" stroke-width="2.5" fill="none"/>
-            <path d="M190 535 C 285 535, 285 535, 380 535" stroke="rgba(102,221,255,.16)" stroke-width="2.5" fill="none"/>
-            <path d="M590 535 C 685 535, 685 535, 780 535" stroke="rgba(102,221,255,.16)" stroke-width="2.5" fill="none"/>
-
-            <path d="M980 590 C 980 645, 980 645, 980 700" stroke="rgba(102,221,255,.16)" stroke-width="2.5" fill="none"/>
-
-            <circle cx="380" cy="95" r="5" fill="rgba(90,162,255,.55)"/>
-            <circle cx="780" cy="95" r="5" fill="rgba(90,162,255,.55)"/>
-            <circle cx="980" cy="260" r="5" fill="rgba(90,162,255,.55)"/>
-            <circle cx="590" cy="315" r="5" fill="rgba(90,162,255,.55)"/>
-            <circle cx="190" cy="315" r="5" fill="rgba(90,162,255,.55)"/>
-            <circle cx="190" cy="480" r="5" fill="rgba(90,162,255,.55)"/>
-            <circle cx="380" cy="535" r="5" fill="rgba(90,162,255,.55)"/>
-            <circle cx="780" cy="535" r="5" fill="rgba(90,162,255,.55)"/>
-            <circle cx="980" cy="700" r="5" fill="rgba(90,162,255,.55)"/>
-          </svg>
-
-          <div class="board-grid" id="boardGrid">
-            <article class="module m1 active" data-id="1">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">01</div>
-                    <div class="micro">Problema</div>
-                  </div>
-                  <h3>¿Qué problema real resuelve?</h3>
-                </div>
-                <p>Crear correctamente el canal desde cero, sin improvisación operativa.</p>
-              </div>
-            </article>
-
-            <article class="module m2" data-id="2">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">02</div>
-                    <div class="micro">Momento</div>
-                  </div>
-                  <h3>¿Por qué vale la pena hacerlo ahora?</h3>
-                </div>
-                <p>La oportunidad existe hoy, pero necesita estructura antes de moverse.</p>
-              </div>
-            </article>
-
-            <article class="module m3" data-id="3">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">03</div>
-                    <div class="micro">Entrega</div>
-                  </div>
-                  <h3>¿Qué va a entregar exactamente?</h3>
-                </div>
-                <p>Una base real de arranque, control y activación inicial.</p>
-              </div>
-            </article>
-
-            <article class="module m4" data-id="4">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">04</div>
-                    <div class="micro">Método</div>
-                  </div>
-                  <h3>¿Qué va a hacer y cómo?</h3>
-                </div>
-                <p>Estructurar el canal paso a paso bajo lógica de implementación.</p>
-              </div>
-            </article>
-
-            <article class="module m5" data-id="5">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">05</div>
-                    <div class="micro">Etapas</div>
-                  </div>
-                  <h3>¿Cuántas etapas tiene?</h3>
-                </div>
-                <p>6 frentes de avance dentro de la etapa inicial.</p>
-              </div>
-            </article>
-
-            <article class="module m6" data-id="6">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">06</div>
-                    <div class="micro">Tiempo</div>
-                  </div>
-                  <h3>¿Cuál es el rango de tiempo?</h3>
-                </div>
-                <p>La secuencia está definida; la velocidad depende de habilitación interna.</p>
-              </div>
-            </article>
-
-            <article class="module m7" data-id="7">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">07</div>
-                    <div class="micro">Minivictorias</div>
-                  </div>
-                  <h3>¿Qué resultado entrega cada etapa?</h3>
-                </div>
-                <p>Cada frente deja una ganancia concreta de claridad, control o activación.</p>
-              </div>
-            </article>
-
-            <article class="module m8" data-id="8">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">08</div>
-                    <div class="micro">Velocidad</div>
-                  </div>
-                  <h3>¿Cuándo se ve avance real?</h3>
-                </div>
-                <p>Desde la misma etapa inicial, no solo al final.</p>
-              </div>
-            </article>
-
-            <article class="module m9" data-id="9">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">09</div>
-                    <div class="micro">Riesgo</div>
-                  </div>
-                  <h3>¿Qué riesgo reduce?</h3>
-                </div>
-                <p>Evita construir el canal con vacíos, fricción y mala coordinación.</p>
-              </div>
-            </article>
-
-            <article class="module m10" data-id="10">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">10</div>
-                    <div class="micro">Arranque</div>
-                  </div>
-                  <h3>¿Qué necesita de Indufrial?</h3>
-                </div>
-                <p>Acceso, validación interna y responsables visibles.</p>
-              </div>
-            </article>
-
-            <article class="module m11" data-id="11">
-              <div class="module-inner">
-                <div>
-                  <div class="module-top">
-                    <div class="n">11</div>
-                    <div class="micro">Cierre</div>
-                  </div>
-                  <h3>¿Termina en plan o en ejecución real?</h3>
-                </div>
-                <p>Deja base estructurada y activa el primer frente de ejecución.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="detail-shell" id="detailShell">
-        <div class="detail-top">
-          <div class="detail-badge" id="detailBadge">Módulo 01 · Problema</div>
-          <div class="detail-actions">
-            <button class="btn btn-secondary" id="prevBtn" type="button">Anterior</button>
-            <button class="btn btn-primary" id="nextBtn" type="button">Siguiente módulo</button>
-          </div>
-        </div>
-
-        <div class="detail-grid">
-          <article class="detail-card">
-            <h2 id="detailQuestion">¿Qué problema real me resuelve esto dentro de Indufrial?</h2>
-            <p id="detailAnswer"></p>
-
-            <div class="meta">
-              <div class="meta-box">
-                <p class="meta-k">Lectura ejecutiva</p>
-                <p class="meta-v" id="detailExecutive"></p>
-              </div>
-              <div class="meta-box">
-                <p class="meta-k">Valor para decisión</p>
-                <p class="meta-v" id="detailValue"></p>
-              </div>
-            </div>
-          </article>
-
-          <article class="detail-card">
-            <div class="detail-list">
-              <div class="detail-item">
-                <p class="k">Respuesta corta</p>
-                <p class="v" id="detailShort"></p>
-              </div>
-              <div class="detail-item">
-                <p class="k">Punto clave</p>
-                <p class="v" id="detailKey"></p>
-              </div>
-              <div class="detail-item">
-                <p class="k">Qué debe quedar claro</p>
-                <p class="v" id="detailClarity"></p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <div class="footer">Indufrial · Executive Decision Board · Etapa inicial del canal comercial digital</div>
     </div>
-  </main>
 
-  <script>
-    const modules = [
-      {
-        id: 1,
-        badge: "Módulo 01 · Problema",
-        question: "¿Qué problema real me resuelve esto dentro de Indufrial?",
-        answer: "Les resuelve cómo crear correctamente el canal comercial digital desde cero, evitando que su construcción arranque sin estructura, sin modelo operativo, sin alineación interna y sin capacidad real de implementación.",
-        executive: "No se está corrigiendo un canal existente; se está construyendo la base correcta para crear uno nuevo.",
-        value: "Convierte una intención comercial en una estructura real de arranque.",
-        short: "Crear bien el canal desde cero.",
-        key: "Evitar que nazca con vacíos operativos, decisiones mal resueltas y desorden interno.",
-        clarity: "El problema no es vender más primero; el problema es construir bien el canal para que sí pueda operar."
-      },
-      {
-        id: 2,
-        badge: "Módulo 02 · Momento",
-        question: "¿Por qué vale la pena hacerlo ahora?",
-        answer: "Porque la oportunidad de desarrollar ese canal existe hoy, pero hacerlo bien exige estructurarlo antes de moverlo, para que no nazca con vacíos, fricciones y desorden interno.",
-        executive: "El momento correcto no es cuando el canal ya esté presionando; es antes, cuando todavía puede estructurarse con control.",
-        value: "Reduce costo de improvisación y acelera un arranque más ordenado.",
-        short: "Porque la oportunidad existe hoy, pero necesita estructura previa.",
-        key: "Si se abre sin base, el canal arranca débil desde su origen.",
-        clarity: "El valor está en anticiparse al desorden, no en reaccionar después."
-      },
-      {
-        id: 3,
-        badge: "Módulo 03 · Entrega",
-        question: "¿Qué me va a entregar exactamente?",
-        answer: "Una base real de arranque para el canal: lectura estructurada del proceso actual, mapa de bloqueos críticos, modelo operativo inicial, hoja de ruta de decisiones críticas, estructura de gobierno por frente y activación del primer frente de implementación.",
-        executive: "No entrega teoría suelta; entrega instrumentos concretos para poner el proyecto en movimiento.",
-        value: "Hace visible qué recibe Indufrial a cambio de la etapa inicial.",
-        short: "Una base estructurada para arrancar el canal con control.",
-        key: "Los entregables convierten la intención en un proyecto habilitado para moverse.",
-        clarity: "No es solo diagnóstico: es definición, dirección y activación inicial."
-      },
-      {
-        id: 4,
-        badge: "Módulo 04 · Método",
-        question: "¿Qué va a hacer en general y cómo lo va a hacer?",
-        answer: "Va a estructurar el canal paso a paso: entender el punto de partida real, identificar bloqueos, definir cómo debe funcionar, alinear las áreas involucradas, priorizar el orden de implementación y activar el primer frente crítico bajo una lógica de control.",
-        executive: "El método no depende de intuición ni de improvisación comercial; depende de una secuencia clara de estructuración.",
-        value: "Le permite a presidencia ver una lógica ordenada, no una consultoría abstracta.",
-        short: "Leer, ordenar, definir, alinear, priorizar y activar.",
-        key: "El proyecto avanza por secuencia, no por iniciativas aisladas.",
-        clarity: "Hay una arquitectura de trabajo, no actividades sueltas."
-      },
-      {
-        id: 5,
-        badge: "Módulo 05 · Etapas",
-        question: "¿Cuántas etapas tiene eso que me va a entregar?",
-        answer: "Tiene 6 frentes de avance dentro de la etapa inicial: claridad del proceso actual, identificación de bloqueos críticos, definición del modelo operativo inicial, alineación entre áreas involucradas, priorización de acciones de implementación y activación del frente inicial de ejecución.",
-        executive: "La etapa inicial ya tiene estructura propia de avance.",
-        value: "Da visibilidad de recorrido y evita la sensación de un proceso difuso.",
-        short: "6 frentes de avance.",
-        key: "Cada frente empuja una condición necesaria para construir bien el canal.",
-        clarity: "No es una sola etapa genérica; tiene componentes claramente definidos."
-      },
-      {
-        id: 6,
-        badge: "Módulo 06 · Tiempo",
-        question: "¿Cuál es el rango estimado de tiempo y de qué depende la velocidad de avance?",
-        answer: "La secuencia está definida, pero la velocidad dependerá del nivel de habilitación interna que encontremos, la disponibilidad de información, la capacidad de respuesta de las áreas y las validaciones que Indufrial deba resolver.",
-        executive: "La estructura del proyecto es fija; la velocidad es variable según la realidad interna.",
-        value: "Evita prometer tiempos falsos y mantiene credibilidad ejecutiva.",
-        short: "La ruta existe; el ritmo depende de habilitación interna.",
-        key: "La velocidad no la define solo el consultor, sino la capacidad real de respuesta de la organización.",
-        clarity: "No vender exactitud artificial también es una señal de seriedad."
-      },
-      {
-        id: 7,
-        badge: "Módulo 07 · Minivictorias",
-        question: "¿Qué resultado entrega cada etapa?",
-        answer: "Cada etapa deja una minivictoria concreta: visibilidad del proceso real, identificación de bloqueos, protocolo base de funcionamiento, alineación operativa entre áreas, orden claro de implementación y evidencia inicial de ejecución.",
-        executive: "El avance se hace visible por resultados parciales verificables, no por reuniones acumuladas.",
-        value: "Le permite a presidencia entender que cada frente deja valor acumulativo.",
-        short: "Cada etapa deja una ganancia concreta.",
-        key: "Las minivictorias son señales tempranas de que el proyecto sí se está moviendo.",
-        clarity: "No todo el valor aparece al final; se va instalando por etapas."
-      },
-      {
-        id: 8,
-        badge: "Módulo 08 · Velocidad",
-        question: "¿Qué tan rápido voy a ver avance real y no solo diagnóstico?",
-        answer: "Desde la misma etapa inicial, porque el trabajo no se queda en análisis: incluye hitos verificables, responsables visibles y activación del primer frente de implementación.",
-        executive: "El avance real empieza dentro de esta primera etapa, no después de una fase larga de observación.",
-        value: "Ayuda a diferenciar la propuesta de una consultoría lenta o puramente conceptual.",
-        short: "El avance real empieza en esta misma etapa.",
-        key: "Hay activación inicial, no solo lectura y documentos.",
-        clarity: "La etapa inicial ya tiene movimiento visible."
-      },
-      {
-        id: 9,
-        badge: "Módulo 09 · Riesgo",
-        question: "¿Qué riesgo me reduce si arranco así y no de otra manera?",
-        answer: "Reduce el riesgo de construir el canal sin estructura, con vacíos operativos, decisiones mal resueltas, fricción entre áreas y una implementación débil desde el inicio.",
-        executive: "El principal riesgo no es demorarse un poco más; es arrancar mal y cargar ese error desde el principio.",
-        value: "Justifica por qué la estructuración inicial no es burocracia, sino protección de ejecución.",
-        short: "Evita construir mal el canal desde el origen.",
-        key: "Un canal mal diseñado hereda fricción operativa y debilidad de implementación.",
-        clarity: "El proyecto no solo busca abrir; busca abrir con menor riesgo estructural."
-      },
-      {
-        id: 10,
-        badge: "Módulo 10 · Arranque",
-        question: "¿Qué necesita de Indufrial para arrancar?",
-        answer: "Acceso a la operación actual, participación de las áreas involucradas, información clave para entender el proceso, capacidad de validación interna y responsables visibles para mover los frentes críticos.",
-        executive: "El arranque exige acceso, respuesta y validación; no puede hacerse solo desde afuera.",
-        value: "Deja claro qué condiciones mínimas debe habilitar la compañía para que el trabajo avance.",
-        short: "Acceso, información, áreas involucradas y responsables visibles.",
-        key: "La velocidad del proyecto depende también de la calidad del acceso interno.",
-        clarity: "Sin habilitación interna, el proyecto pierde ritmo y precisión."
-      },
-      {
-        id: 11,
-        badge: "Módulo 11 · Cierre",
-        question: "¿Esto termina en un plan o en ejecución real?",
-        answer: "Termina en una base estructurada de implementación y en la activación del primer frente de ejecución, para que el proyecto no quede solo en definición, sino que empiece a moverse de forma real y controlada.",
-        executive: "Esta etapa no cierra en teoría; cierra con una base habilitada y una primera línea ya activada.",
-        value: "Le da a presidencia una salida clara: no compra solo planeación, compra arranque estructurado.",
-        short: "Termina en base real más activación inicial.",
-        key: "No se queda en un memo estratégico; deja movimiento real.",
-        clarity: "La etapa inicial ya toca ejecución."
-      }
-    ];
+    <!-- Q2 -->
+    <div id="q2" class="modal fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('q2')">
+        <div class="bg-slate-900 w-full max-w-lg rounded-3xl p-8 border border-white/10" onclick="event.stopPropagation()">
+            <h3 class="text-premium-blue font-mono text-xs uppercase tracking-[0.3em] mb-4">Urgencia</h3>
+            <p class="text-xl text-white font-semibold leading-relaxed mb-6">Escalar sobre el caos es mortal.</p>
+            <p class="text-slate-400 text-sm leading-relaxed">
+                Hacerlo ahora permite capturar el mercado con una eficiencia que su competencia no tiene. Cada día de retraso es presupuesto perdido en fricciones operativas invisibles.
+            </p>
+            <button onclick="closeModal('q2')" class="mt-8 w-full py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl font-bold text-xs uppercase tracking-widest transition-all">Cerrar Dashboard</button>
+        </div>
+    </div>
 
-    const questionEl = document.getElementById("detailQuestion");
-    const answerEl = document.getElementById("detailAnswer");
-    const executiveEl = document.getElementById("detailExecutive");
-    const valueEl = document.getElementById("detailValue");
-    const shortEl = document.getElementById("detailShort");
-    const keyEl = document.getElementById("detailKey");
-    const clarityEl = document.getElementById("detailClarity");
-    const badgeEl = document.getElementById("detailBadge");
-    const detailShell = document.getElementById("detailShell");
-    const moduleEls = document.querySelectorAll(".module");
+    <!-- Q3 -->
+    <div id="q3" class="modal fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('q3')">
+        <div class="bg-slate-900 w-full max-w-lg rounded-3xl p-8 border border-white/10" onclick="event.stopPropagation()">
+            <h3 class="text-premium-blue font-mono text-xs uppercase tracking-[0.3em] mb-4">Metodología</h3>
+            <p class="text-xl text-white font-semibold leading-relaxed mb-4">Auditoría, Estructuración y Activación.</p>
+            <div class="space-y-4 text-slate-400 text-sm">
+                <p>Analizamos data real, diseñamos protocolos digitales de respuesta rápida e implementamos el nuevo flujo directamente en los equipos. No solo observamos: <b class="text-white">reconfiguramos.</b></p>
+                <div class="p-4 bg-white/5 rounded-xl border-l-4 border-premium-blue">
+                    <p class="text-xs italic">¿Qué necesita de Indufrial? Acceso total a data, validación de líderes y apertura al cambio operativo.</p>
+                </div>
+            </div>
+            <button onclick="closeModal('q3')" class="mt-8 w-full py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl font-bold text-xs uppercase tracking-widest transition-all">Cerrar Dashboard</button>
+        </div>
+    </div>
 
-    let current = 1;
+    <!-- Q4 -->
+    <div id="q4" class="modal fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('q4')">
+        <div class="bg-slate-900 w-full max-w-lg rounded-3xl p-8 border border-white/10" onclick="event.stopPropagation()">
+            <h3 class="text-premium-blue font-mono text-xs uppercase tracking-[0.3em] mb-4">Fases y Tiempos</h3>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-white/5 p-4 rounded-xl">
+                    <p class="text-[9px] text-slate-500 uppercase">Duración</p>
+                    <p class="text-lg font-bold text-white">4 - 8 Semanas</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl">
+                    <p class="text-[9px] text-slate-500 uppercase">Avance Real</p>
+                    <p class="text-lg font-bold text-premium-blue">Semana 2</p>
+                </div>
+            </div>
+            <ul class="space-y-3 text-slate-400 text-xs">
+                <li class="flex items-center gap-3"><span class="status-dot bg-premium-blue"></span> <b>Fase 1:</b> Auditoría & Hallazgos Críticos.</li>
+                <li class="flex items-center gap-3"><span class="status-dot bg-slate-600"></span> <b>Fase 2:</b> Arquitectura del Modelo (Protocolos).</li>
+                <li class="flex items-center gap-3"><span class="status-dot bg-slate-600"></span> <b>Fase 3:</b> Desbloqueo de Fricciones.</li>
+                <li class="flex items-center gap-3"><span class="status-dot bg-slate-600"></span> <b>Fase 4:</b> Activación del Frente Operativo.</li>
+            </ul>
+            <button onclick="closeModal('q4')" class="mt-8 w-full py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl font-bold text-xs uppercase tracking-widest transition-all">Cerrar Dashboard</button>
+        </div>
+    </div>
 
-    function render(id){
-      const item = modules.find(m => m.id === id);
-      if(!item) return;
-      current = id;
+    <!-- Q5 -->
+    <div id="q5" class="modal fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('q5')">
+        <div class="bg-slate-900 w-full max-w-lg rounded-3xl p-8 border border-white/10" onclick="event.stopPropagation()">
+            <h3 class="text-premium-blue font-mono text-xs uppercase tracking-[0.3em] mb-4">Mitigación de Riesgos</h3>
+            <p class="text-xl text-white font-semibold leading-relaxed mb-6">Cura la insostenibilidad financiera.</p>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                Reducimos el riesgo de quemar presupuesto en marketing sin capacidad de entrega. Evitamos quejas, devoluciones y la erosión de la marca por mala gestión de expectativas.
+            </p>
+            <div class="bg-red-500/10 border border-red-500/20 p-3 rounded-xl text-[10px] text-red-400 text-center">
+                RIESGO REDUCIDO: DESPLOME POR CRECIMIENTO ACELERADO.
+            </div>
+            <button onclick="closeModal('q5')" class="mt-8 w-full py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl font-bold text-xs uppercase tracking-widest transition-all">Cerrar Dashboard</button>
+        </div>
+    </div>
 
-      badgeEl.textContent = item.badge;
-      questionEl.textContent = item.question;
-      answerEl.textContent = item.answer;
-      executiveEl.textContent = item.executive;
-      valueEl.textContent = item.value;
-      shortEl.textContent = item.short;
-      keyEl.textContent = item.key;
-      clarityEl.textContent = item.clarity;
+    <!-- Q6 -->
+    <div id="q6" class="modal fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('q6')">
+        <div class="bg-slate-900 w-full max-w-lg rounded-3xl p-8 border border-white/10 shadow-[0_0_50px_rgba(0,212,255,0.15)]" onclick="event.stopPropagation()">
+            <h3 class="text-premium-blue font-mono text-xs uppercase tracking-[0.3em] mb-4">Entregables de Valor</h3>
+            <p class="text-xl text-white font-semibold leading-relaxed mb-6">No es un plan, es ejecución real.</p>
+            <div class="grid grid-cols-1 gap-3">
+                <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
+                    <span class="text-xs text-slate-300">Sistema de Gobierno Digital</span>
+                    <span class="text-[9px] font-mono text-premium-blue">CORE</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
+                    <span class="text-xs text-slate-300">Protocolos de Respuesta Rápida</span>
+                    <span class="text-[9px] font-mono text-premium-blue">SOP</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
+                    <span class="text-xs text-slate-300">Primer Frente Operativo Activado</span>
+                    <span class="text-[9px] font-mono text-premium-blue">LIVE</span>
+                </div>
+            </div>
+            <button onclick="closeModal('q6')" class="mt-8 w-full py-4 bg-premium-blue/10 hover:bg-premium-blue/20 text-premium-blue border border-premium-blue/30 rounded-xl font-bold text-xs uppercase tracking-widest transition-all">Finalizar Consulta</button>
+        </div>
+    </div>
 
-      moduleEls.forEach(el => {
-        el.classList.toggle("active", Number(el.dataset.id) === id);
-      });
-    }
-
-    moduleEls.forEach(el => {
-      el.addEventListener("click", () => {
-        render(Number(el.dataset.id));
-        detailShell.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
-
-    document.getElementById("nextBtn").addEventListener("click", () => {
-      const next = current === modules.length ? 1 : current + 1;
-      render(next);
-    });
-
-    document.getElementById("prevBtn").addEventListener("click", () => {
-      const prev = current === 1 ? modules.length : current - 1;
-      render(prev);
-    });
-
-    render(1);
-  </script>
+    <script>
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
 </body>
 </html>
