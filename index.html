@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Indufrial | RESUMEN VISUAL DEL ALCANCE</title>
+  <title>Indufrial | Resumen visual del alcance</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,6 +108,13 @@
     .mini-pill{
       background:#f4f8ff;
       border:1px solid #dbe9ff;
+      transition: all .2s ease;
+    }
+
+    .mini-pill:hover{
+      background:#eaf3ff;
+      border-color:#b9d5ff;
+      transform: translateY(-1px);
     }
 
     .modal-blur{
@@ -121,6 +128,10 @@
 
     .glow-dot{
       box-shadow: 0 0 0 5px rgba(37,99,235,.08);
+    }
+
+    .node-anchor{
+      scroll-margin-top: 100px;
     }
 
     @media (max-width: 1024px){
@@ -141,12 +152,11 @@
         </div>
       </div>
       <div class="hidden md:flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] font-extrabold text-brand-700">
-        <span class="px-3 py-2 rounded-full mini-pill">Etapa inicial</span>
+        <span class="px-3 py-2 rounded-full mini-pill">Resumen ejecutivo</span>
       </div>
     </div>
   </header>
 
-  <!-- DIRECT ENTRY: starts with buttons -->
   <main class="max-w-7xl mx-auto space-y-6">
 
     <!-- Immediate map / buttons -->
@@ -163,32 +173,35 @@
         <div class="card rounded-3xl p-4">
           <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Valor</div>
           <div class="flex flex-wrap gap-2">
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Problema</span>
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Ahora</span>
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Riesgo</span>
+            <a href="#node-m1" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Problema</a>
+            <a href="#node-m2" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Ahora</a>
+            <a href="#node-m3" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Riesgo</a>
           </div>
         </div>
+
         <div class="card rounded-3xl p-4">
           <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Alcance</div>
           <div class="flex flex-wrap gap-2">
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Entrega</span>
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Método</span>
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Etapas</span>
+            <a href="#node-m4" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Entrega</a>
+            <a href="#node-m5" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Método</a>
+            <a href="#node-m6" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Etapas</a>
           </div>
         </div>
+
         <div class="card rounded-3xl p-4">
           <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Ejecución</div>
           <div class="flex flex-wrap gap-2">
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Tiempo</span>
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Minivictorias</span>
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Avance</span>
+            <a href="#node-m7" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Tiempo</a>
+            <a href="#node-m8" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Minivictorias</a>
+            <a href="#node-m9" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Avance</a>
           </div>
         </div>
+
         <div class="card rounded-3xl p-4">
-          <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">CONDICIONES</div>
+          <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Condiciones</div>
           <div class="flex flex-wrap gap-2">
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Indufrial</span>
-            <span class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Resultado Final</span>
+            <a href="#node-m10" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Indufrial</a>
+            <a href="#node-m11" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Resultado final</a>
           </div>
         </div>
       </div>
@@ -208,7 +221,7 @@
 
       <!-- Nodes -->
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-        <button class="node-btn active rounded-4xl p-5 text-left" onclick="openModal('m1')">
+        <button id="node-m1" class="node-anchor node-btn active rounded-4xl p-5 text-left" onclick="openModal('m1')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-brand-600 text-white flex items-center justify-center font-black">01</div>
             <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Problema</div>
@@ -217,7 +230,7 @@
           <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">No existe hoy una estructura real para abrir y operar este canal.</div>
         </button>
 
-        <button class="node-btn rounded-4xl p-5 text-left" onclick="openModal('m2')">
+        <button id="node-m2" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m2')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-sky-500 text-white flex items-center justify-center font-black">02</div>
             <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Ahora</div>
@@ -226,7 +239,7 @@
           <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">La oportunidad existe, pero no debe nacer desordenado.</div>
         </button>
 
-        <button class="node-btn rounded-4xl p-5 text-left" onclick="openModal('m3')">
+        <button id="node-m3" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m3')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-orange-500 text-white flex items-center justify-center font-black">03</div>
             <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Riesgo</div>
@@ -235,16 +248,16 @@
           <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Reducir vacíos, fricción y mala coordinación interna.</div>
         </button>
 
-        <button class="node-btn rounded-4xl p-5 text-left" onclick="openModal('m4')">
+        <button id="node-m4" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m4')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-brand-700 text-white flex items-center justify-center font-black">04</div>
             <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Entrega</div>
           </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Base real de CONDICIONES</div>
+          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Base real de arranque</div>
           <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Estructura clara para poner el canal en marcha.</div>
         </button>
 
-        <button class="node-btn rounded-4xl p-5 text-left" onclick="openModal('m5')">
+        <button id="node-m5" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m5')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-emerald-500 text-white flex items-center justify-center font-black">05</div>
             <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Método</div>
@@ -253,16 +266,16 @@
           <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Leer el proceso, resolver bloqueos y mover el primer frente.</div>
         </button>
 
-        <button class="node-btn rounded-4xl p-5 text-left" onclick="openModal('m6')">
+        <button id="node-m6" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m6')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-amber-500 text-white flex items-center justify-center font-black">06</div>
             <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Etapas</div>
           </div>
           <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">6 frentes iniciales</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">El CONDICIONES se organiza en seis frentes de avance.</div>
+          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">La estructuración se organiza en seis frentes de avance.</div>
         </button>
 
-        <button class="node-btn rounded-4xl p-5 text-left" onclick="openModal('m7')">
+        <button id="node-m7" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m7')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-indigo-500 text-white flex items-center justify-center font-black">07</div>
             <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Tiempo</div>
@@ -271,7 +284,7 @@
           <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Avance por frentes y validaciones internas.</div>
         </button>
 
-        <button class="node-btn rounded-4xl p-5 text-left" onclick="openModal('m8')">
+        <button id="node-m8" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m8')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-cyan-500 text-white flex items-center justify-center font-black">08</div>
             <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Minivictorias</div>
@@ -280,7 +293,7 @@
           <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Cada frente deja una ganancia concreta y visible.</div>
         </button>
 
-        <button class="node-btn rounded-4xl p-5 text-left" onclick="openModal('m9')">
+        <button id="node-m9" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m9')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-teal-500 text-white flex items-center justify-center font-black">09</div>
             <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Avance</div>
@@ -289,7 +302,7 @@
           <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">No se queda en diagnóstico; empieza a activarse.</div>
         </button>
 
-        <button class="node-btn rounded-4xl p-5 text-left" onclick="openModal('m10')">
+        <button id="node-m10" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m10')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-blue-500 text-white flex items-center justify-center font-black">10</div>
             <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Indufrial</div>
@@ -298,10 +311,10 @@
           <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Información, áreas involucradas y responsables visibles.</div>
         </button>
 
-        <button class="node-btn rounded-4xl p-5 text-left" onclick="openModal('m11')">
+        <button id="node-m11" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m11')">
           <div class="flex items-start justify-between gap-3 mb-4">
             <div class="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black">11</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Resultado Final</div>
+            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Resultado final</div>
           </div>
           <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Base estructurada + ejecución inicial</div>
           <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Termina con base habilitada y primer frente en marcha.</div>
@@ -344,7 +357,6 @@
         <div class="text-sm font-bold text-slate-500">Simulación visual de la operación en marcha</div>
       </div>
 
-      <!-- KPI row -->
       <div class="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-5">
         <div class="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
           <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">Inversión</div>
@@ -369,7 +381,6 @@
       </div>
 
       <div class="grid grid-cols-1 xl:grid-cols-[1.05fr_0.95fr] gap-4">
-        <!-- Left -->
         <div class="space-y-4">
           <div class="rounded-4xl border border-slate-200 bg-white p-5 shadow-soft">
             <div class="flex items-center justify-between mb-4">
@@ -447,7 +458,6 @@
           </div>
         </div>
 
-        <!-- Right -->
         <div class="space-y-4">
           <div class="rounded-4xl border border-slate-200 bg-white p-5 shadow-soft">
             <div class="flex items-center justify-between mb-4">
@@ -560,7 +570,7 @@
   <div id="m4" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m4')">
     <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
       <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Entrega</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-5">Base real de CONDICIONES</div>
+      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-5">Base real de arranque</div>
       <div class="space-y-3 text-base font-semibold text-slate-700">
         <div>Auditoría del proceso actual</div>
         <div>Mapa de bloqueos críticos</div>
@@ -643,7 +653,7 @@
 
   <div id="m11" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m11')">
     <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Resultado Final</div>
+      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Resultado final</div>
       <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-4">Base estructurada + ejecución inicial</div>
       <div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed">No se queda en definición; deja la base habilitada y el primer frente en movimiento.</div>
       <button onclick="closeModal('m11')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
@@ -665,7 +675,6 @@
       document.body.style.overflow = 'auto';
     }
 
-    // KPI animation
     function animateValue(el, start, end, duration, prefix = '', suffix = '', decimals = 0) {
       const startTime = performance.now();
       function update(now) {
@@ -704,14 +713,12 @@
 
     function setBar(id, width) {
       const el = document.getElementById(id);
-      let current = 0;
       const target = width;
       const startTime = performance.now();
       function update(now){
         const progress = Math.min((now - startTime) / 1600, 1);
         const ease = 1 - Math.pow(1 - progress, 3);
-        current = target * ease;
-        el.style.width = current + '%';
+        el.style.width = (target * ease) + '%';
         if(progress < 1) requestAnimationFrame(update);
       }
       requestAnimationFrame(update);
