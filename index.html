@@ -7,33 +7,41 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; }
     .glass { background: rgba(255,255,255,0.72); backdrop-filter: blur(14px); }
     .hero-bg {
       background:
-        radial-gradient(circle at top right, rgba(96,165,250,0.22), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(99,102,241,0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(96,165,250,0.24), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(99,102,241,0.20), transparent 28%),
         linear-gradient(135deg, #0f172a 0%, #172554 42%, #1e1b4b 100%);
     }
     .section-anchor { scroll-margin-top: 96px; }
+    .chip {
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .chip:hover, .chip:active {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+    }
+    details summary::-webkit-details-marker { display: none; }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
   <nav class="fixed top-0 inset-x-0 z-50 glass border-b border-slate-200/80">
-    <div class="max-w-6xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-blue-700 text-white flex items-center justify-center font-extrabold italic shadow-sm">I</div>
-        <div>
-          <div class="font-black tracking-tight uppercase text-blue-950 text-sm md:text-base">Indufrial</div>
-          <div class="text-[10px] md:text-xs uppercase tracking-[0.25em] text-slate-400">Marco estratégico</div>
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-9 h-9 rounded-xl bg-blue-700 text-white flex items-center justify-center font-extrabold italic shadow-sm flex-shrink-0">I</div>
+        <div class="min-w-0">
+          <div class="font-black tracking-tight uppercase text-blue-950 text-sm md:text-base truncate">Indufrial</div>
+          <div class="text-[10px] md:text-xs uppercase tracking-[0.25em] text-slate-400 truncate">Marco estratégico</div>
         </div>
       </div>
       <div class="hidden md:flex items-center gap-5 text-sm text-slate-600">
-        <a href="#tesis" class="hover:text-slate-950 transition">Tesis</a>
+        <a href="#impacto" class="hover:text-slate-950 transition">Impacto</a>
         <a href="#frentes" class="hover:text-slate-950 transition">Frentes</a>
         <a href="#hitos" class="hover:text-slate-950 transition">Hitos</a>
         <a href="#entregables" class="hover:text-slate-950 transition">Entregables</a>
@@ -41,33 +49,47 @@
     </div>
   </nav>
 
-  <header class="hero-bg pt-32 md:pt-36 pb-20 md:pb-24 px-5 md:px-8 text-white relative overflow-hidden">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-[1.2fr_0.8fr] gap-10 items-end">
+  <header class="hero-bg pt-28 md:pt-36 pb-16 md:pb-24 px-4 md:px-8 text-white relative overflow-hidden">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-[1.2fr_0.8fr] gap-8 md:gap-10 items-start">
       <div>
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/10 text-[11px] uppercase tracking-[0.24em] font-bold text-blue-100 mb-7">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/10 text-[11px] uppercase tracking-[0.24em] font-bold text-blue-100 mb-6">
           Proyecto canal comercial digital
         </div>
         <h1 class="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight max-w-4xl">
           Marco estratégico de avance
         </h1>
-        <p class="mt-6 text-base md:text-lg text-blue-100/90 leading-relaxed max-w-3xl">
-          Transformar la oportunidad comercial en una <span class="font-bold text-white">capacidad operativa sostenible</span>,
-          con estructura previa, control operativo y una puesta en marcha consistente dentro de la realidad interna de Indufrial.
+        <p class="mt-5 text-base md:text-lg text-blue-100/90 leading-relaxed max-w-3xl">
+          Transformar la oportunidad comercial en una <span class="font-bold text-white">capacidad operativa sostenible</span>, con estructura previa, control operativo y una puesta en marcha consistente dentro de la realidad interna de Indufrial.
         </p>
+
+        <div class="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3" id="impacto">
+          <a href="#propuesta" class="chip rounded-2xl border border-white/15 bg-white text-slate-950 px-4 py-4 text-left shadow-sm">
+            <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">Qué propone</div>
+            <div class="font-black text-base leading-tight">Orden y puesta en marcha</div>
+          </a>
+          <a href="#evita" class="chip rounded-2xl border border-white/15 bg-white/10 px-4 py-4 text-left">
+            <div class="text-[10px] uppercase tracking-[0.22em] text-blue-200 font-extrabold mb-2">Qué evita</div>
+            <div class="font-black text-base leading-tight text-white">Apertura desordenada</div>
+          </a>
+          <a href="#resultado" class="chip rounded-2xl border border-white/15 bg-white/10 px-4 py-4 text-left">
+            <div class="text-[10px] uppercase tracking-[0.22em] text-blue-200 font-extrabold mb-2">Qué deja</div>
+            <div class="font-black text-base leading-tight text-white">Proyecto con control</div>
+          </a>
+        </div>
       </div>
 
-      <div class="bg-white/10 border border-white/10 rounded-3xl p-6 md:p-7 shadow-2xl">
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-5 md:p-7 shadow-2xl">
         <div class="text-[11px] uppercase tracking-[0.25em] text-blue-200 font-extrabold mb-4">Lectura rápida para presidencia</div>
         <div class="space-y-4 text-sm md:text-[15px] leading-relaxed text-blue-50/95">
-          <div>
-            <div class="font-bold text-white mb-1">Qué plantea este marco</div>
+          <div id="propuesta">
+            <div class="font-bold text-white mb-1">Qué propone este marco</div>
             <div>Ordenar la etapa inicial del proyecto mediante frentes críticos, hitos de control, entregables concretos y una puesta en marcha táctica.</div>
           </div>
-          <div>
+          <div id="evita">
             <div class="font-bold text-white mb-1">Qué busca evitar</div>
             <div>Apertura desordenada del canal, fricciones operativas y decisiones sin soporte suficiente de implementación.</div>
           </div>
-          <div>
+          <div id="resultado">
             <div class="font-bold text-white mb-1">Qué debe dejar esta etapa</div>
             <div>Un proyecto con dirección, trazabilidad, responsables visibles y primeras acciones activadas bajo una lógica de control.</div>
           </div>
@@ -76,11 +98,11 @@
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
+  <main class="max-w-6xl mx-auto px-4 md:px-8 py-12 md:py-20 space-y-12 md:space-y-16">
 
     <section class="section-anchor" id="resumen">
       <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-6 items-start">
-        <div class="bg-white border border-slate-200 rounded-[2rem] p-7 md:p-8 shadow-sm">
+        <div class="bg-white border border-slate-200 rounded-[2rem] p-6 md:p-8 shadow-sm">
           <div class="text-[11px] uppercase tracking-[0.25em] text-blue-700 font-extrabold mb-4">Resumen ejecutivo</div>
           <div class="space-y-4 text-slate-700 leading-relaxed">
             <div class="flex gap-3">
@@ -98,7 +120,7 @@
           </div>
         </div>
 
-        <div class="bg-slate-950 text-white rounded-[2rem] p-7 md:p-8 shadow-sm border border-slate-900">
+        <div class="bg-slate-950 text-white rounded-[2rem] p-6 md:p-8 shadow-sm border border-slate-900">
           <div class="text-[11px] uppercase tracking-[0.25em] text-blue-300 font-extrabold mb-4">Planteamiento general</div>
           <div class="space-y-5 text-slate-200 leading-relaxed">
             <p><span class="font-bold text-white italic">Indufrial</span> tiene la <span class="font-bold text-white">oportunidad</span> de desarrollar un <span class="font-bold text-white">canal comercial digital</span> orientado a clientes pequeños. Sin embargo, para que ese frente se convierta en una <span class="font-bold text-white">capacidad sostenible de crecimiento</span>, el proyecto no puede abordarse como una simple expansión comercial. Requiere una <span class="font-bold text-white">estructuración previa</span> que defina su lógica de funcionamiento, reduzca riesgos de <span class="font-bold text-white">ejecución</span> y alinee su <span class="font-bold text-white">implementación</span> con la realidad operativa de la compañía.</p>
@@ -108,8 +130,8 @@
       </div>
     </section>
 
-    <section class="section-anchor pt-14 md:pt-20" id="contexto">
-      <div class="bg-white border border-slate-200 rounded-[2rem] p-7 md:p-8 shadow-sm">
+    <section class="section-anchor" id="contexto">
+      <div class="bg-white border border-slate-200 rounded-[2rem] p-6 md:p-8 shadow-sm">
         <div class="flex items-center justify-between gap-4 flex-wrap mb-6">
           <div>
             <div class="text-[11px] uppercase tracking-[0.25em] text-slate-400 font-extrabold mb-2">Contexto y hallazgo clave</div>
@@ -124,9 +146,9 @@
       </div>
     </section>
 
-    <section class="section-anchor pt-14 md:pt-20" id="tesis">
+    <section class="section-anchor" id="tesis">
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-[2rem] p-7 md:p-8 shadow-sm">
+        <div class="bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-[2rem] p-6 md:p-8 shadow-sm">
           <div class="text-[11px] uppercase tracking-[0.25em] text-blue-700 font-extrabold mb-3">Tesis central del proyecto</div>
           <p class="text-xl md:text-2xl font-black tracking-tight leading-tight text-slate-900">
             No es la habilitación de un frente de ventas aislado.
@@ -135,7 +157,7 @@
             Es una <span class="font-bold text-slate-950">estructuración estratégica</span> cuya viabilidad depende de un <span class="font-bold text-slate-950">modelo de funcionamiento sólido</span> y de <span class="font-bold text-slate-950">criterios de control</span> que aseguren ejecución consistente con la realidad operativa de la compañía.
           </p>
         </div>
-        <div class="bg-white border border-slate-200 rounded-[2rem] p-7 md:p-8 shadow-sm">
+        <div class="bg-white border border-slate-200 rounded-[2rem] p-6 md:p-8 shadow-sm">
           <div class="text-[11px] uppercase tracking-[0.25em] text-slate-400 font-extrabold mb-3">Objetivo del acompañamiento</div>
           <p class="text-slate-700 leading-relaxed">
             <span class="font-bold text-slate-950">Estructurar, priorizar y dirigir</span> la puesta en marcha de los frentes críticos del canal digital, asegurando que el proyecto avance con <span class="font-bold text-slate-950">criterios definidos</span>, control sobre los <span class="font-bold text-slate-950">puntos críticos</span> y una base de implementación consistente dentro de la operación de Indufrial.
@@ -149,7 +171,7 @@
       </div>
     </section>
 
-    <section class="section-anchor pt-14 md:pt-20" id="frentes">
+    <section class="section-anchor" id="frentes">
       <div class="mb-8">
         <div class="text-[11px] uppercase tracking-[0.25em] text-slate-400 font-extrabold mb-2">Frentes estratégicos de avance</div>
         <h2 class="text-2xl md:text-3xl font-black tracking-tight text-slate-950">La etapa inicial debe concentrarse en estos frentes</h2>
@@ -159,46 +181,82 @@
       </div>
 
       <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-        <div class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
-          <div class="w-12 h-12 rounded-2xl bg-blue-700 text-white flex items-center justify-center font-black mb-4">1</div>
-          <h3 class="font-black text-lg tracking-tight text-slate-950 mb-3">Claridad del proceso actual</h3>
-          <p class="text-slate-600 leading-relaxed">Levantar y entender con precisión cómo funciona hoy la ruta comercial y operativa relacionada con este tipo de cliente, identificando actores, validaciones, puntos de decisión y zonas de fricción.</p>
-        </div>
+        <details class="group bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm open:ring-2 open:ring-blue-200">
+          <summary class="list-none cursor-pointer">
+            <div class="w-12 h-12 rounded-2xl bg-blue-700 text-white flex items-center justify-center font-black mb-4">1</div>
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="font-black text-lg tracking-tight text-slate-950">Claridad del proceso actual</h3>
+              <span class="text-slate-400 group-open:rotate-45 transition text-2xl leading-none">+</span>
+            </div>
+            <p class="mt-3 text-slate-600 leading-relaxed">Levantar y entender con precisión la ruta comercial y operativa actual.</p>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Identificando actores, validaciones, puntos de decisión y zonas de fricción que afectan la viabilidad del canal.</p>
+        </details>
 
-        <div class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
-          <div class="w-12 h-12 rounded-2xl bg-indigo-700 text-white flex items-center justify-center font-black mb-4">2</div>
-          <h3 class="font-black text-lg tracking-tight text-slate-950 mb-3">Bloqueos críticos</h3>
-          <p class="text-slate-600 leading-relaxed">Detectar y priorizar los principales obstáculos que pueden limitar la correcta implementación del canal, tanto en el plano comercial como en el operativo, administrativo y de control.</p>
-        </div>
+        <details class="group bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm open:ring-2 open:ring-indigo-200">
+          <summary class="list-none cursor-pointer">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-700 text-white flex items-center justify-center font-black mb-4">2</div>
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="font-black text-lg tracking-tight text-slate-950">Bloqueos críticos</h3>
+              <span class="text-slate-400 group-open:rotate-45 transition text-2xl leading-none">+</span>
+            </div>
+            <p class="mt-3 text-slate-600 leading-relaxed">Detectar y priorizar los obstáculos que limitan la implementación.</p>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Tanto en el plano comercial como en el operativo, administrativo y de control.</p>
+        </details>
 
-        <div class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
-          <div class="w-12 h-12 rounded-2xl bg-blue-500 text-white flex items-center justify-center font-black mb-4">3</div>
-          <h3 class="font-black text-lg tracking-tight text-slate-950 mb-3">Modelo operativo inicial</h3>
-          <p class="text-slate-600 leading-relaxed">Establecer la arquitectura de funcionamiento del canal —captura de leads, perfilamiento y protocolos de respuesta— bajo criterios de control, secuencia y consistencia.</p>
-        </div>
+        <details class="group bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm open:ring-2 open:ring-blue-200">
+          <summary class="list-none cursor-pointer">
+            <div class="w-12 h-12 rounded-2xl bg-blue-500 text-white flex items-center justify-center font-black mb-4">3</div>
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="font-black text-lg tracking-tight text-slate-950">Modelo operativo inicial</h3>
+              <span class="text-slate-400 group-open:rotate-45 transition text-2xl leading-none">+</span>
+            </div>
+            <p class="mt-3 text-slate-600 leading-relaxed">Definir captura, perfilamiento y protocolos de respuesta.</p>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Bajo criterios de control, secuencia y consistencia con la realidad interna de Indufrial.</p>
+        </details>
 
-        <div class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
-          <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black mb-4">4</div>
-          <h3 class="font-black text-lg tracking-tight text-slate-950 mb-3">Alineación entre áreas</h3>
-          <p class="text-slate-600 leading-relaxed">Asegurar que las decisiones y condiciones de funcionamiento del canal no queden aisladas en el frente comercial, sino conectadas con las áreas que inciden en su validación, soporte y ejecución.</p>
-        </div>
+        <details class="group bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm open:ring-2 open:ring-slate-200">
+          <summary class="list-none cursor-pointer">
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black mb-4">4</div>
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="font-black text-lg tracking-tight text-slate-950">Alineación entre áreas</h3>
+              <span class="text-slate-400 group-open:rotate-45 transition text-2xl leading-none">+</span>
+            </div>
+            <p class="mt-3 text-slate-600 leading-relaxed">Conectar la lógica comercial con soporte, validación y ejecución.</p>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Para que el canal no quede aislado del funcionamiento real de la compañía.</p>
+        </details>
 
-        <div class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black mb-4">5</div>
-          <h3 class="font-black text-lg tracking-tight text-slate-950 mb-3">Priorización de implementación</h3>
-          <p class="text-slate-600 leading-relaxed">Convertir el análisis en un orden real de ejecución, definiendo qué debe resolverse primero, qué depende de qué y cuáles son las decisiones iniciales que deben ponerse en marcha.</p>
-        </div>
+        <details class="group bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm open:ring-2 open:ring-emerald-200">
+          <summary class="list-none cursor-pointer">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black mb-4">5</div>
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="font-black text-lg tracking-tight text-slate-950">Priorización de implementación</h3>
+              <span class="text-slate-400 group-open:rotate-45 transition text-2xl leading-none">+</span>
+            </div>
+            <p class="mt-3 text-slate-600 leading-relaxed">Convertir el análisis en un orden real de ejecución.</p>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Definiendo qué debe resolverse primero, qué depende de qué y cuáles son las decisiones iniciales que deben ponerse en marcha.</p>
+        </details>
 
-        <div class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
-          <div class="w-12 h-12 rounded-2xl bg-rose-600 text-white flex items-center justify-center font-black mb-4">6</div>
-          <h3 class="font-black text-lg tracking-tight text-slate-950 mb-3">Activación inicial</h3>
-          <p class="text-slate-600 leading-relaxed">Poner en movimiento las primeras acciones críticas del proyecto, de forma que la etapa inicial no se quede en diagnóstico, sino que empiece a producir avance visible y controlado.</p>
-        </div>
+        <details class="group bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm open:ring-2 open:ring-rose-200">
+          <summary class="list-none cursor-pointer">
+            <div class="w-12 h-12 rounded-2xl bg-rose-600 text-white flex items-center justify-center font-black mb-4">6</div>
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="font-black text-lg tracking-tight text-slate-950">Activación inicial</h3>
+              <span class="text-slate-400 group-open:rotate-45 transition text-2xl leading-none">+</span>
+            </div>
+            <p class="mt-3 text-slate-600 leading-relaxed">Poner en movimiento las primeras acciones críticas.</p>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">De forma que la etapa inicial no se quede en diagnóstico, sino que empiece a producir avance visible y controlado.</p>
+        </details>
       </div>
     </section>
 
-    <section class="section-anchor pt-14 md:pt-20" id="hitos">
-      <div class="bg-slate-950 text-white rounded-[2rem] p-7 md:p-8 shadow-sm overflow-hidden">
+    <section class="section-anchor" id="hitos">
+      <div class="bg-slate-950 text-white rounded-[2rem] p-6 md:p-8 shadow-sm overflow-hidden">
         <div class="flex items-end justify-between gap-4 flex-wrap mb-8">
           <div>
             <div class="text-[11px] uppercase tracking-[0.25em] text-blue-300 font-extrabold mb-2">Hitos de control y victorias tempranas</div>
@@ -207,8 +265,8 @@
           <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-400">Trazabilidad · Retorno · Implementación</div>
         </div>
 
-        <div class="grid gap-4">
-          <div class="grid md:grid-cols-[0.95fr_1.2fr_1.2fr] gap-3 p-5 bg-white/5 rounded-[1.5rem] border border-white/10">
+        <div class="space-y-4">
+          <button onclick="document.getElementById('panel-auditoria').scrollIntoView({behavior:'smooth'})" class="chip w-full text-left grid md:grid-cols-[0.95fr_1.2fr_1.2fr] gap-3 p-5 bg-white/5 rounded-[1.5rem] border border-white/10">
             <div>
               <div class="text-[11px] uppercase tracking-[0.22em] text-slate-400 font-extrabold mb-2">Frente de control</div>
               <div class="font-black text-lg">Auditoría de procesos</div>
@@ -221,9 +279,9 @@
               <div class="text-[11px] uppercase tracking-[0.22em] text-emerald-300 font-extrabold mb-2">Victoria temprana</div>
               <div class="text-slate-200 leading-relaxed">Visibilidad total de los cuellos de botella que hoy frenan la escala.</div>
             </div>
-          </div>
+          </button>
 
-          <div class="grid md:grid-cols-[0.95fr_1.2fr_1.2fr] gap-3 p-5 bg-white/5 rounded-[1.5rem] border border-white/10">
+          <button onclick="document.getElementById('panel-arquitectura').scrollIntoView({behavior:'smooth'})" class="chip w-full text-left grid md:grid-cols-[0.95fr_1.2fr_1.2fr] gap-3 p-5 bg-white/5 rounded-[1.5rem] border border-white/10">
             <div>
               <div class="text-[11px] uppercase tracking-[0.22em] text-slate-400 font-extrabold mb-2">Frente de control</div>
               <div class="font-black text-lg">Arquitectura del modelo</div>
@@ -236,9 +294,9 @@
               <div class="text-[11px] uppercase tracking-[0.22em] text-emerald-300 font-extrabold mb-2">Victoria temprana</div>
               <div class="text-slate-200 leading-relaxed">Cero ambigüedad en la atención y consistencia en la gestión de leads.</div>
             </div>
-          </div>
+          </button>
 
-          <div class="grid md:grid-cols-[0.95fr_1.2fr_1.2fr] gap-3 p-5 bg-white/5 rounded-[1.5rem] border border-white/10">
+          <button onclick="document.getElementById('panel-decisiones').scrollIntoView({behavior:'smooth'})" class="chip w-full text-left grid md:grid-cols-[0.95fr_1.2fr_1.2fr] gap-3 p-5 bg-white/5 rounded-[1.5rem] border border-white/10">
             <div>
               <div class="text-[11px] uppercase tracking-[0.22em] text-slate-400 font-extrabold mb-2">Frente de control</div>
               <div class="font-black text-lg">Desbloqueo de decisiones</div>
@@ -251,9 +309,9 @@
               <div class="text-[11px] uppercase tracking-[0.22em] text-emerald-300 font-extrabold mb-2">Victoria temprana</div>
               <div class="text-slate-200 leading-relaxed">Hoja de ruta activa con responsables visibles y frentes en movimiento.</div>
             </div>
-          </div>
+          </button>
 
-          <div class="grid md:grid-cols-[0.95fr_1.2fr_1.2fr] gap-3 p-5 bg-white/5 rounded-[1.5rem] border border-white/10">
+          <button onclick="document.getElementById('panel-ejecucion').scrollIntoView({behavior:'smooth'})" class="chip w-full text-left grid md:grid-cols-[0.95fr_1.2fr_1.2fr] gap-3 p-5 bg-white/5 rounded-[1.5rem] border border-white/10">
             <div>
               <div class="text-[11px] uppercase tracking-[0.22em] text-slate-400 font-extrabold mb-2">Frente de control</div>
               <div class="font-black text-lg">Fase táctica de ejecución</div>
@@ -266,23 +324,23 @@
               <div class="text-[11px] uppercase tracking-[0.22em] text-emerald-300 font-extrabold mb-2">Victoria temprana</div>
               <div class="text-slate-200 leading-relaxed">Evidencia real de avance: paso del diagnóstico a la ejecución visible.</div>
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section-anchor pt-14 md:pt-20" id="entregables">
+    <section class="section-anchor" id="entregables">
       <div class="mb-8">
         <div class="text-[11px] uppercase tracking-[0.25em] text-slate-400 font-extrabold mb-2">Entregables de la etapa inicial</div>
         <h2 class="text-2xl md:text-3xl font-black tracking-tight text-slate-950">Lo que esta etapa debe dejar instalado</h2>
       </div>
 
       <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-        <div class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
+        <div id="panel-auditoria" class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
           <div class="font-black text-slate-950 mb-3">1. Auditoría integral del proceso actual</div>
           <p class="text-slate-600 leading-relaxed">Lectura estructurada del flujo end-to-end del canal, incluyendo puntos de fricción, vacíos de control y dependencias operativas relevantes.</p>
         </div>
-        <div class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
+        <div id="panel-arquitectura" class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
           <div class="font-black text-slate-950 mb-3">2. Mapa de bloqueos críticos</div>
           <p class="text-slate-600 leading-relaxed">Identificación y priorización de obstáculos que condicionan la correcta implementación del canal, con visibilidad sobre su impacto y frentes que requieren intervención.</p>
         </div>
@@ -290,7 +348,7 @@
           <div class="font-black text-slate-950 mb-3">3. Arquitectura del modelo operativo inicial</div>
           <p class="text-slate-600 leading-relaxed">Definición del protocolo base de funcionamiento del canal, incluyendo captura, perfilamiento, respuesta y criterios para el tratamiento de oportunidades.</p>
         </div>
-        <div class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
+        <div id="panel-decisiones" class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
           <div class="font-black text-slate-950 mb-3">4. Hoja de ruta de decisiones críticas</div>
           <p class="text-slate-600 leading-relaxed">Relación estructurada de decisiones que deben quedar resueltas para habilitar la puesta en marcha del proyecto.</p>
         </div>
@@ -298,16 +356,16 @@
           <div class="font-black text-slate-950 mb-3">5. Estructura de gobierno por frente</div>
           <p class="text-slate-600 leading-relaxed">Definición de responsables y áreas involucradas en cada frente crítico para asegurar trazabilidad, control y capacidad de ejecución.</p>
         </div>
-        <div class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
+        <div id="panel-ejecucion" class="bg-white rounded-[1.75rem] p-6 border border-slate-200 shadow-sm">
           <div class="font-black text-slate-950 mb-3">6. Activación del primer frente de implementación</div>
           <p class="text-slate-600 leading-relaxed">Puesta en marcha de una primera línea de ejecución bajo la nueva estructura de control, dejando evidencia concreta de avance.</p>
         </div>
       </div>
     </section>
 
-    <section class="section-anchor pt-14 md:pt-20" id="modalidad">
+    <section class="section-anchor" id="modalidad">
       <div class="grid lg:grid-cols-[1fr_1fr] gap-6">
-        <div class="bg-white rounded-[2rem] p-7 md:p-8 border border-slate-200 shadow-sm">
+        <div class="bg-white rounded-[2rem] p-6 md:p-8 border border-slate-200 shadow-sm">
           <div class="text-[11px] uppercase tracking-[0.25em] text-slate-400 font-extrabold mb-3">Modalidad de trabajo</div>
           <p class="text-slate-700 leading-relaxed">
             La modalidad corresponde a una <span class="font-bold text-slate-950">consultoría con liderazgo táctico</span> sobre la etapa inicial del proyecto, orientada a estructurar los frentes críticos, dirigir su priorización y acompañar la puesta en marcha de las primeras decisiones necesarias para su ejecución.
@@ -316,7 +374,7 @@
             Su alcance comprende una <span class="font-bold text-slate-950">participación directa</span> en la lectura del proceso, el destrabe de decisiones, la organización de los frentes de avance y la activación del primer bloque de implementación bajo criterios de <span class="font-bold text-slate-950">control y trazabilidad</span>.
           </p>
         </div>
-        <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-[2rem] p-7 md:p-8 shadow-sm">
+        <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-[2rem] p-6 md:p-8 shadow-sm">
           <div class="text-[11px] uppercase tracking-[0.25em] text-blue-300 font-extrabold mb-3">Cierre ejecutivo</div>
           <p class="leading-relaxed text-slate-200">
             <span class="font-bold text-white">Indufrial tiene frente a sí una oportunidad real</span> de construir un canal digital con capacidad de abrir un nuevo frente de crecimiento. El valor de esa oportunidad dependerá de la calidad con la que se estructure su puesta en marcha.
@@ -330,7 +388,7 @@
 
   </main>
 
-  <footer class="border-t border-slate-200 py-10 px-5 md:px-8 bg-white">
+  <footer class="border-t border-slate-200 py-10 px-4 md:px-8 bg-white">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
       <div>
         <div class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-extrabold mb-1">Confidencial</div>
