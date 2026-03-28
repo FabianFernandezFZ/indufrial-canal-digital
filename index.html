@@ -3,759 +3,256 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Indufrial | Resumen visual del alcance</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              50: '#f5f9ff',
-              100: '#eaf3ff',
-              200: '#d8e8ff',
-              300: '#b9d5ff',
-              400: '#7fb1ff',
-              500: '#4f8df7',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#173ea8',
-              900: '#0f2d74',
-            }
-          },
-          boxShadow: {
-            soft: '0 10px 30px rgba(15,23,42,0.06)',
-            hover: '0 18px 40px rgba(37,99,235,0.10)',
-          },
-          borderRadius: {
-            '4xl': '2rem'
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body{
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(79,141,247,.08), transparent 24%),
-        linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-      color:#0f172a;
-      overflow-x:hidden;
-    }
-
-    .card{
-      background: rgba(255,255,255,.92);
-      border: 1px solid rgba(148,163,184,.18);
-      box-shadow: 0 10px 30px rgba(15,23,42,.05);
-      backdrop-filter: blur(10px);
-      transition: all .25s ease;
-    }
-
-    .card:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(37,99,235,.10);
-      border-color: rgba(37,99,235,.22);
-    }
-
-    .node-btn{
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at top right, rgba(79,141,247,.10), transparent 28%),
-        linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
-      border:1px solid rgba(148,163,184,.18);
-      box-shadow: 0 10px 30px rgba(15,23,42,.05);
-      transition: all .22s ease;
-    }
-
-    .node-btn:hover,
-    .node-btn.active{
-      transform: translateY(-2px);
-      border-color: rgba(37,99,235,.28);
-      box-shadow: 0 18px 40px rgba(37,99,235,.10);
-    }
-
-    .node-btn::after{
-      content:"";
-      position:absolute;
-      inset:auto -20px -28px auto;
-      width:110px;
-      height:110px;
-      border-radius:999px;
-      background:radial-gradient(circle, rgba(37,99,235,.10), transparent 68%);
-      pointer-events:none;
-    }
-
-    .flow-shell{
-      position: relative;
-    }
-
-    .flow-line{
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      opacity:.28;
-    }
-
-    .mini-pill{
-      background:#f4f8ff;
-      border:1px solid #dbe9ff;
-      transition: all .2s ease;
-    }
-
-    .mini-pill:hover{
-      background:#eaf3ff;
-      border-color:#b9d5ff;
-      transform: translateY(-1px);
-    }
-
-    .modal-blur{
-      backdrop-filter: blur(12px);
-      background: rgba(15,23,42,.30);
-    }
-
-    .metric-value{
-      font-variant-numeric: tabular-nums;
-    }
-
-    .glow-dot{
-      box-shadow: 0 0 0 5px rgba(37,99,235,.08);
-    }
-
-    .node-anchor{
-      scroll-margin-top: 100px;
-    }
-
-    @media (max-width: 1024px){
-      .flow-line{ display:none; }
-    }
-  </style>
+  <title>Canal Digital Indufrial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="p-4 md:p-6">
+<body>
+  <section class="hero-section">
+    <header>
+      <h1 class="hero-title">Canal Digital Indufrial</h1>
+      <p class="hero-subtitle">Adaptación a nuevas dinámicas de mercado</p>
+      <div class="hero-divider"></div>
+      <p class="support-line">Canal complementario · Nuevos clientes · Fortalecimiento comercial</p>
+    </header>
 
-  <!-- Top -->
-  <header class="max-w-7xl mx-auto mb-6">
-    <div class="flex items-center justify-between gap-4">
-      <div class="flex items-center gap-3 min-w-0">
-        <div class="w-11 h-11 rounded-2xl bg-brand-600 text-white flex items-center justify-center font-black shadow-soft">I</div>
-        <div class="min-w-0">
-          <div class="text-[11px] uppercase tracking-[0.28em] text-slate-500 font-extrabold">TABLERO EJECUTIVO DE ALCANCE</div>
-          <div class="text-sm md:text-base font-black tracking-tight text-slate-950 truncate">Indufrial · Canal comercial digital</div>
-        </div>
+    <div class="cards-container">
+      <div class="card">
+        <i data-lucide="store" class="card-icon" width="50" height="50"></i>
+        <h3 class="card-title">Pequeños negocios</h3>
       </div>
-      <div class="hidden md:flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] font-extrabold text-brand-700">
-        <span class="px-3 py-2 rounded-full mini-pill">Resumen ejecutivo</span>
+      <div class="card">
+        <i data-lucide="building-2" class="card-icon" width="50" height="50"></i>
+        <h3 class="card-title">Clientes corporativos</h3>
+      </div>
+      <div class="card">
+        <i data-lucide="container" class="card-icon" width="50" height="50"></i>
+        <h3 class="card-title">Vending</h3>
+      </div>
+      <div class="card">
+        <i data-lucide="globe" class="card-icon" width="50" height="50"></i>
+        <h3 class="card-title">Internacional</h3>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main class="max-w-7xl mx-auto space-y-6">
-
-    <!-- Immediate map / buttons -->
-    <section class="flow-shell card rounded-4xl p-4 md:p-6">
-      <div class="mb-4 md:mb-5">
-        <div class="text-[11px] uppercase tracking-[0.28em] text-brand-700 font-extrabold mb-2">RESUMEN VISUAL DEL ALCANCE</div>
-        <h1 class="text-2xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight">
-          Estructuración del canal digital
-        </h1>
+  <section class="behavior-section">
+    <div class="behavior-container">
+      <div class="behavior-content">
+        <h2 class="section-title">Cómo están comprando hoy los clientes</h2>
+        <ul class="behavior-list">
+          <li><span class="check-icon"><i data-lucide="check" width="20" height="20"></i></span><p>Buscan desde el <strong>celular</strong></p></li>
+          <li><span class="check-icon"><i data-lucide="check" width="20" height="20"></i></span><p>Comparan <strong>antes de contactar</strong></p></li>
+          <li><span class="check-icon"><i data-lucide="check" width="20" height="20"></i></span><p>Esperan <strong>respuesta inmediata</strong></p></li>
+          <li><span class="check-icon"><i data-lucide="check" width="20" height="20"></i></span><p>No dependen únicamente del vendedor</p></li>
+        </ul>
       </div>
 
-      <!-- Zones -->
-      <div class="grid grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4 mb-5">
-        <div class="card rounded-3xl p-4">
-          <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Valor</div>
-          <div class="flex flex-wrap gap-2">
-            <a href="#node-m1" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Problema</a>
-            <a href="#node-m2" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Ahora</a>
-            <a href="#node-m3" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Riesgo</a>
-          </div>
-        </div>
-
-        <div class="card rounded-3xl p-4">
-          <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Alcance</div>
-          <div class="flex flex-wrap gap-2">
-            <a href="#node-m4" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Entrega</a>
-            <a href="#node-m5" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Método</a>
-            <a href="#node-m6" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Etapas</a>
-          </div>
-        </div>
-
-        <div class="card rounded-3xl p-4">
-          <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Ejecución</div>
-          <div class="flex flex-wrap gap-2">
-            <a href="#node-m7" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Tiempo</a>
-            <a href="#node-m8" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Minivictorias</a>
-            <a href="#node-m9" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Avance</a>
-          </div>
-        </div>
-
-        <div class="card rounded-3xl p-4">
-          <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Condiciones</div>
-          <div class="flex flex-wrap gap-2">
-            <a href="#node-m10" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Indufrial</a>
-            <a href="#node-m11" class="mini-pill px-3 py-2 rounded-full text-xs font-bold">Resultado final</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Flow SVG -->
-      <svg class="flow-line" viewBox="0 0 1200 760" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M190 92 C 285 92, 285 92, 380 92" stroke="#2563eb" stroke-width="3" fill="none"/>
-        <path d="M590 92 C 685 92, 685 92, 780 92" stroke="#2563eb" stroke-width="3" fill="none"/>
-        <path d="M980 146 C 980 204, 980 204, 980 258" stroke="#2563eb" stroke-width="3" fill="none"/>
-        <path d="M780 312 C 685 312, 685 312, 590 312" stroke="#2563eb" stroke-width="3" fill="none"/>
-        <path d="M380 312 C 285 312, 285 312, 190 312" stroke="#2563eb" stroke-width="3" fill="none"/>
-        <path d="M190 368 C 190 425, 190 425, 190 478" stroke="#2563eb" stroke-width="3" fill="none"/>
-        <path d="M190 534 C 285 534, 285 534, 380 534" stroke="#2563eb" stroke-width="3" fill="none"/>
-        <path d="M590 534 C 685 534, 685 534, 780 534" stroke="#2563eb" stroke-width="3" fill="none"/>
-        <path d="M980 590 C 980 646, 980 646, 980 700" stroke="#2563eb" stroke-width="3" fill="none"/>
-      </svg>
-
-      <!-- Nodes -->
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-        <button id="node-m1" class="node-anchor node-btn active rounded-4xl p-5 text-left" onclick="openModal('m1')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-brand-600 text-white flex items-center justify-center font-black">01</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Problema</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Capacidad comercial digital ausente</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">No existe hoy una estructura real para abrir y operar este canal.</div>
-        </button>
-
-        <button id="node-m2" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m2')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-sky-500 text-white flex items-center justify-center font-black">02</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Ahora</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Estructurarlo antes de moverlo</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">La oportunidad existe, pero no debe nacer desordenado.</div>
-        </button>
-
-        <button id="node-m3" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m3')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-orange-500 text-white flex items-center justify-center font-black">03</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Riesgo</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Evitar una implementación débil</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Reducir vacíos, fricción y mala coordinación interna.</div>
-        </button>
-
-        <button id="node-m4" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m4')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-brand-700 text-white flex items-center justify-center font-black">04</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Entrega</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Base real de arranque</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Estructura clara para poner el canal en marcha.</div>
-        </button>
-
-        <button id="node-m5" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m5')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-emerald-500 text-white flex items-center justify-center font-black">05</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Método</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Ordenar · definir · activar</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Leer el proceso, resolver bloqueos y mover el primer frente.</div>
-        </button>
-
-        <button id="node-m6" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m6')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-amber-500 text-white flex items-center justify-center font-black">06</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Etapas</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">6 frentes iniciales</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">La estructuración se organiza en seis frentes de avance.</div>
-        </button>
-
-        <button id="node-m7" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m7')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-indigo-500 text-white flex items-center justify-center font-black">07</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Tiempo</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Secuencia definida · activación progresiva</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Avance por frentes y validaciones internas.</div>
-        </button>
-
-        <button id="node-m8" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m8')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-cyan-500 text-white flex items-center justify-center font-black">08</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Minivictorias</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Resultado por etapa</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Cada frente deja una ganancia concreta y visible.</div>
-        </button>
-
-        <button id="node-m9" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m9')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-teal-500 text-white flex items-center justify-center font-black">09</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Avance</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Movimiento desde etapa 1</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">No se queda en diagnóstico; empieza a activarse.</div>
-        </button>
-
-        <button id="node-m10" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m10')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-blue-500 text-white flex items-center justify-center font-black">10</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Indufrial</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Acceso · validación · responsables</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Información, áreas involucradas y responsables visibles.</div>
-        </button>
-
-        <button id="node-m11" class="node-anchor node-btn rounded-4xl p-5 text-left" onclick="openModal('m11')">
-          <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black">11</div>
-            <div class="text-[10px] uppercase tracking-[0.24em] text-slate-500 font-extrabold">Resultado final</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-slate-950 leading-tight">Base estructurada + ejecución inicial</div>
-          <div class="mt-3 text-sm font-bold text-slate-600 leading-relaxed">Termina con base habilitada y primer frente en marcha.</div>
-        </button>
-      </div>
-    </section>
-
-    <!-- Support strips -->
-    <section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-      <div class="card rounded-4xl p-5">
-        <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-4">6 frentes de avance</div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-bold text-slate-700">
-          <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-600 glow-dot"></span>Proceso actual</div>
-          <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-600 glow-dot"></span>Bloqueos críticos</div>
-          <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-600 glow-dot"></span>Modelo operativo</div>
-          <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-600 glow-dot"></span>Alineación interna</div>
-          <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-600 glow-dot"></span>Orden de implementación</div>
-          <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-600 glow-dot"></span>Activación inicial</div>
-        </div>
-      </div>
-
-      <div class="card rounded-4xl p-5">
-        <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-4">4 hitos de control</div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-bold text-slate-700">
-          <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-sky-500 glow-dot"></span>Auditoría del proceso</div>
-          <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-sky-500 glow-dot"></span>Arquitectura del modelo</div>
-          <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-sky-500 glow-dot"></span>Definiciones resueltas</div>
-          <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-sky-500 glow-dot"></span>Primer frente activo</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final dashboard simulation -->
-    <section class="card rounded-4xl p-4 md:p-6">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-        <div>
-          <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-2">Lo que esto habilita después</div>
-          <h2 class="text-2xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight">Dashboard ejecutivo de operación y crecimiento</h2>
-        </div>
-        <div class="text-sm font-bold text-slate-500">Simulación visual de la operación en marcha</div>
-      </div>
-
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-5">
-        <div class="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
-          <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">Inversión</div>
-          <div id="kpiInvestment" class="metric-value text-2xl font-black text-slate-950">$ 0</div>
-        </div>
-        <div class="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
-          <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">Ventas</div>
-          <div id="kpiSales" class="metric-value text-2xl font-black text-slate-950">$ 0</div>
-        </div>
-        <div class="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
-          <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">Leads</div>
-          <div id="kpiLeads" class="metric-value text-2xl font-black text-slate-950">0</div>
-        </div>
-        <div class="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
-          <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">ROAS</div>
-          <div id="kpiRoas" class="metric-value text-2xl font-black text-slate-950">0.0x</div>
-        </div>
-        <div class="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
-          <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">ROI</div>
-          <div id="kpiRoi" class="metric-value text-2xl font-black text-emerald-600">0%</div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 xl:grid-cols-[1.05fr_0.95fr] gap-4">
-        <div class="space-y-4">
-          <div class="rounded-4xl border border-slate-200 bg-white p-5 shadow-soft">
-            <div class="flex items-center justify-between mb-4">
-              <div class="text-[10px] uppercase tracking-[0.22em] text-brand-700 font-extrabold">Ventas por plataforma</div>
-              <div class="text-xs font-bold text-slate-500">Simulación activa</div>
+      <div class="behavior-visual">
+        <div class="device-mockup animate-float">
+          <div class="google-search-phase">
+            <div class="search-bar-sim">
+              <i data-lucide="search" width="14" height="14"></i>
+              <span class="typing-text">comprar vitrina vertical...</span>
             </div>
+          </div>
 
-            <div class="space-y-4">
-              <div>
-                <div class="flex justify-between text-sm font-bold mb-2">
-                  <span>Meta Ads</span>
-                  <span id="platformMeta">$ 0M</span>
-                </div>
-                <div class="h-3 rounded-full bg-slate-100 overflow-hidden">
-                  <div id="barMeta" class="h-full rounded-full bg-brand-600" style="width:0%"></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="flex justify-between text-sm font-bold mb-2">
-                  <span>Google</span>
-                  <span id="platformGoogle">$ 0M</span>
-                </div>
-                <div class="h-3 rounded-full bg-slate-100 overflow-hidden">
-                  <div id="barGoogle" class="h-full rounded-full bg-sky-500" style="width:0%"></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="flex justify-between text-sm font-bold mb-2">
-                  <span>WhatsApp</span>
-                  <span id="platformWhats">$ 0M</span>
-                </div>
-                <div class="h-3 rounded-full bg-slate-100 overflow-hidden">
-                  <div id="barWhats" class="h-full rounded-full bg-emerald-500" style="width:0%"></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="flex justify-between text-sm font-bold mb-2">
-                  <span>Marketplace</span>
-                  <span id="platformMkt">$ 0M</span>
-                </div>
-                <div class="h-3 rounded-full bg-slate-100 overflow-hidden">
-                  <div id="barMkt" class="h-full rounded-full bg-orange-500" style="width:0%"></div>
-                </div>
+          <div class="result-phase">
+            <div class="featured-product-card">
+              <div class="ad-badge">Anuncio • Indufrial</div>
+              <img src="https://cdn.shopify.com/s/files/1/0913/4066/9295/files/forte-v40-rhc.webp?v=1774718866" class="p-img-result" alt="Vitrina Forte V40" />
+              <h4 class="p-title">Vitrina Forte V40</h4>
+              <p class="p-desc">Ideal para tu negocio. Entrega rápida.</p>
+              <div class="fake-click-btn">
+                <i data-lucide="message-circle" width="14" height="14"></i> Cotizar por WhatsApp
               </div>
             </div>
           </div>
 
-          <div class="rounded-4xl border border-slate-200 bg-white p-5 shadow-soft">
-            <div class="flex items-center justify-between mb-4">
-              <div class="text-[10px] uppercase tracking-[0.22em] text-brand-700 font-extrabold">Geo preferencia</div>
-              <div class="text-xs font-bold text-slate-500">Zonas con mayor compra</div>
+          <div class="whatsapp-chat-phase">
+            <div class="chat-header">
+              <div class="online-dot"></div>
+              <span>Asesor Indufrial</span>
             </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <div class="rounded-3xl bg-brand-50 border border-brand-100 p-4">
-                <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">Bogotá</div>
-                <div id="geoBogota" class="metric-value text-2xl font-black text-slate-950">0%</div>
-              </div>
-              <div class="rounded-3xl bg-sky-50 border border-sky-100 p-4">
-                <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">Medellín</div>
-                <div id="geoMedellin" class="metric-value text-2xl font-black text-slate-950">0%</div>
-              </div>
-              <div class="rounded-3xl bg-emerald-50 border border-emerald-100 p-4">
-                <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">Cali</div>
-                <div id="geoCali" class="metric-value text-2xl font-black text-slate-950">0%</div>
-              </div>
-              <div class="rounded-3xl bg-orange-50 border border-orange-100 p-4">
-                <div class="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-2">Costa</div>
-                <div id="geoCosta" class="metric-value text-2xl font-black text-slate-950">0%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="space-y-4">
-          <div class="rounded-4xl border border-slate-200 bg-white p-5 shadow-soft">
-            <div class="flex items-center justify-between mb-4">
-              <div class="text-[10px] uppercase tracking-[0.22em] text-brand-700 font-extrabold">Funnel comercial</div>
-              <div class="text-xs font-bold text-slate-500">Seguimiento centralizado</div>
-            </div>
-
-            <div class="space-y-4">
-              <div>
-                <div class="flex justify-between text-sm font-bold mb-2">
-                  <span>Leads generados</span>
-                  <span id="funnelLeads">0</span>
-                </div>
-                <div class="h-3 rounded-full bg-slate-100 overflow-hidden">
-                  <div id="funnelBarLeads" class="h-full rounded-full bg-brand-600" style="width:0%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-sm font-bold mb-2">
-                  <span>Leads calificados</span>
-                  <span id="funnelQualified">0</span>
-                </div>
-                <div class="h-3 rounded-full bg-slate-100 overflow-hidden">
-                  <div id="funnelBarQualified" class="h-full rounded-full bg-sky-500" style="width:0%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-sm font-bold mb-2">
-                  <span>Pasados a mercadeo / comercial</span>
-                  <span id="funnelPassed">0</span>
-                </div>
-                <div class="h-3 rounded-full bg-slate-100 overflow-hidden">
-                  <div id="funnelBarPassed" class="h-full rounded-full bg-emerald-500" style="width:0%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-sm font-bold mb-2">
-                  <span>Ventas cerradas</span>
-                  <span id="funnelSales">0</span>
-                </div>
-                <div class="h-3 rounded-full bg-slate-100 overflow-hidden">
-                  <div id="funnelBarSales" class="h-full rounded-full bg-orange-500" style="width:0%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="rounded-4xl border border-slate-200 bg-white p-5 shadow-soft">
-            <div class="flex items-center justify-between mb-4">
-              <div class="text-[10px] uppercase tracking-[0.22em] text-brand-700 font-extrabold">Estado de ejecución</div>
-              <div class="text-xs font-bold text-slate-500">Frentes y avance</div>
-            </div>
-
-            <div class="space-y-3 text-sm font-bold">
-              <div class="flex items-center justify-between rounded-2xl bg-slate-50 border border-slate-100 px-4 py-3">
-                <span>Proceso actual</span>
-                <span id="status1" class="text-brand-700">En lectura</span>
-              </div>
-              <div class="flex items-center justify-between rounded-2xl bg-slate-50 border border-slate-100 px-4 py-3">
-                <span>Bloqueos críticos</span>
-                <span id="status2" class="text-brand-700">En priorización</span>
-              </div>
-              <div class="flex items-center justify-between rounded-2xl bg-slate-50 border border-slate-100 px-4 py-3">
-                <span>Modelo operativo</span>
-                <span id="status3" class="text-brand-700">En definición</span>
-              </div>
-              <div class="flex items-center justify-between rounded-2xl bg-slate-50 border border-slate-100 px-4 py-3">
-                <span>Activación inicial</span>
-                <span id="status4" class="text-emerald-600">Listo para activar</span>
-              </div>
+            <div class="chat-body">
+              <div class="msg outgoing">Hola, me interesa esta vitrina. ¿Qué precio tiene?</div>
+              <div class="msg incoming">¡Hola! Un gusto saludarte. 👋</div>
+              <div class="msg incoming">La Vitrina Forte V40 está en promoción hoy. ¿Para qué ciudad la necesitas?</div>
+              <div class="typing-indicator">Asesor está escribiendo...</div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <footer class="text-center text-[11px] uppercase tracking-[0.22em] text-slate-400 font-extrabold py-2">
-      Indufrial · TABLERO EJECUTIVO DE ALCANCE
-    </footer>
-  </main>
-
-  <!-- MODALS -->
-  <div id="m1" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m1')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Problema</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-4">Capacidad comercial digital ausente</div>
-      <div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed">No existe hoy una estructura real para abrir y operar este canal.</div>
-      <button onclick="closeModal('m1')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
     </div>
-  </div>
+  </section>
 
-  <div id="m2" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m2')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Ahora</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-4">La oportunidad existe, pero debe estructurarse primero.</div>
-      <div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed">Hacerlo ahora permite construir el canal con control, antes de que nazca con vacíos y fricciones.</div>
-      <button onclick="closeModal('m2')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
+  <section class="evolution-section">
+    <div class="evolution-header">
+      <h2 class="frase-impacto">El comportamiento ya cambió. <span class="accent-text">El canal aún no.</span></h2>
+      <p class="titulo-grafico">Evolución de la demanda en canales digitales (2023 - 2025)</p>
     </div>
-  </div>
 
-  <div id="m3" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m3')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Riesgo</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-4">Reducir vacíos operativos y fricción interna.</div>
-      <div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed">La estructuración inicial reduce el riesgo de una implementación débil desde el inicio.</div>
-      <button onclick="closeModal('m3')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
-    </div>
-  </div>
-
-  <div id="m4" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m4')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Entrega</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-5">Base real de arranque</div>
-      <div class="space-y-3 text-base font-semibold text-slate-700">
-        <div>Auditoría del proceso actual</div>
-        <div>Mapa de bloqueos críticos</div>
-        <div>Modelo operativo inicial</div>
-        <div>Hoja de ruta de decisiones críticas</div>
-        <div>Estructura de gobierno por frente</div>
-        <div>Activación del primer frente</div>
+    <div class="bars-container">
+      <div class="bar-group">
+        <div class="bar-info">
+          <span class="bar-label">Uso del celular para búsqueda y compra</span>
+          <span class="bar-percentage">78%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill green" style="--target-width: 78%"></div></div>
       </div>
-      <button onclick="closeModal('m4')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
-    </div>
-  </div>
 
-  <div id="m5" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m5')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Método</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-5">Ordenar, definir y activar.</div>
-      <div class="space-y-3 text-base font-semibold text-slate-700">
-        <div>Leer el proceso actual</div>
-        <div>Identificar bloqueos</div>
-        <div>Definir el modelo operativo</div>
-        <div>Alinear áreas involucradas</div>
-        <div>Priorizar acciones</div>
-        <div>Activar el primer frente crítico</div>
+      <div class="bar-group">
+        <div class="bar-info">
+          <span class="bar-label">Investigación online antes de contactar</span>
+          <span class="bar-percentage">72%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill blue" style="--target-width: 72%"></div></div>
       </div>
-      <button onclick="closeModal('m5')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
-    </div>
-  </div>
 
-  <div id="m6" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m6')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Etapas</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-5">6 frentes de avance</div>
-      <div class="space-y-3 text-base font-semibold text-slate-700">
-        <div>Proceso actual</div>
-        <div>Bloqueos críticos</div>
-        <div>Modelo operativo</div>
-        <div>Alineación interna</div>
-        <div>Orden de implementación</div>
-        <div>Activación inicial</div>
+      <div class="bar-group">
+        <div class="bar-info">
+          <span class="bar-label">Expectativa de respuesta inmediata (&lt; 1h)</span>
+          <span class="bar-percentage">63%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill blue-dark" style="--target-width: 63%"></div></div>
       </div>
-      <button onclick="closeModal('m6')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
-    </div>
-  </div>
 
-  <div id="m7" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m7')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Tiempo</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-4">Secuencia definida · activación progresiva</div>
-      <div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed">El avance se ejecuta por frentes críticos, con hitos de validación interna y activación progresiva.</div>
-      <button onclick="closeModal('m7')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
+      <div class="years-footer">
+        <span>Año 2023</span>
+        <span>Año 2024</span>
+        <span>Proyección 2025*</span>
+      </div>
     </div>
-  </div>
 
-  <div id="m8" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m8')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Minivictorias</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-4">Cada etapa deja una ganancia concreta.</div>
-      <div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed">Visibilidad del proceso, bloqueos identificados, modelo base, alineación entre áreas y evidencia inicial de ejecución.</div>
-      <button onclick="closeModal('m8')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
-    </div>
-  </div>
+    <p class="source-txt">Fuentes: Google B2B Journey, Salesforce &amp; McKinsey Pulse. *Datos proyectados al cierre de año.</p>
+  </section>
 
-  <div id="m9" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m9')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Avance</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-4">El avance real empieza en esta misma etapa.</div>
-      <div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed">No se queda en diagnóstico. Incluye hitos verificables y activación del primer frente.</div>
-      <button onclick="closeModal('m9')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
-    </div>
-  </div>
+  <section class="arquitectura-seccion">
+    <div class="main-container-arch">
+      <h2 class="arch-title">Arquitectura del sistema</h2>
+      <p class="arch-subtitle">Componentes claves para captar y gestionar oportunidades.</p>
 
-  <div id="m10" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m10')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Indufrial</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-4">Acceso, validación y responsables visibles.</div>
-      <div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed">Se necesita acceso a información clave, participación de áreas y capacidad de validación interna.</div>
-      <button onclick="closeModal('m10')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
-    </div>
-  </div>
+      <div class="diagram-space">
+        <svg class="arrows-layer-arch" viewBox="0 0 1000 550" aria-hidden="true">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#CBD5E1" />
+            </marker>
+          </defs>
+          <path class="arrow-line" d="M500,80 Q350,100 200,210" />
+          <path class="arrow-line" d="M500,80 Q650,100 800,210" />
+          <path class="arrow-line" d="M300,320 L440,320" />
+          <path class="arrow-line" d="M700,320 L560,320" />
+        </svg>
 
-  <div id="m11" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 modal-blur" onclick="closeModal('m11')">
-    <div class="w-full max-w-xl rounded-4xl bg-white border border-slate-200 shadow-hover p-6 md:p-8" onclick="event.stopPropagation()">
-      <div class="text-[10px] uppercase tracking-[0.26em] text-brand-700 font-extrabold mb-3">Resultado final</div>
-      <div class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-tight mb-4">Base estructurada + ejecución inicial</div>
-      <div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed">No se queda en definición; deja la base habilitada y el primer frente en movimiento.</div>
-      <button onclick="closeModal('m11')" class="mt-8 w-full rounded-2xl bg-slate-950 text-white py-4 font-black uppercase tracking-[0.18em] text-xs">Cerrar</button>
+        <div class="center-gear-arch">
+          <svg viewBox="0 0 100 100" class="spinning-arch" aria-hidden="true">
+            <path d="M94.5,43.4l-9.8-1.5c-0.8-3.3-2-6.4-3.6-9.3l6.5-7.6c1.1-1.3,0.9-3.2-0.3-4.4l-6.4-6.4c-1.2-1.2-3.1-1.4-4.4-0.3l-7.6,6.5c-2.9-1.6-6-2.9-9.3-3.6l-1.5-9.8C57.9,0.7,56,0,54.2,0h-9c-1.8,0-3.6,0.7-3.9,2.4l-1.5,9.8c-3.3,0.8-6.4,2-9.3,3.6l-7.6-6.5c-1.3-1.1-3.2-0.9-4.4,0.3l-6.4,6.4c-1.2,1.2-1.4,3.1-0.3,4.4l6.5,7.6c-1.6,2.9-2.9,6-3.6,9.3l-9.8,1.5C0.7,43.8,0,45.7,0,47.5v9c0,1.8,0.7,3.6,2.4,3.9l9.8,1.5c0.8,3.3,2,6.4,3.6,9.3l-6.5,7.6c-1.1,1.3-0.9,3.2,0.3,4.4l6.4,6.4c1.2,1.2,3.1,1.4,4.4,0.3l7.6-6.5c2.9,1.6,6,2.9,9.3,3.6l1.5,9.8c0.3,1.7,2.1,2.4,3.9,2.4h9c1.8,0,3.6-0.7,3.9-2.4l1.5-9.8c3.3-0.8,6.4-2,9.3-3.6l7.6,6.5c1.3,1.1,3.2,0.9,4.4-0.3l6.4-6.4c1.2-1.2,1.4-3.1,0.3-4.4l-6.5-7.6c1.6-2.9,2.9-6,3.6-9.3l9.8-1.5c1.7-0.3,2.4-2.1,2.4-3.9v-9C100,45.7,96.2,43.7,94.5,43.4z M50,67c-9.4,0-17-7.6-17-17c0-9.4,7.6-17,17-17s17,7.6,17,17C67,59.4,59.4,67,50,67z"/>
+            <circle cx="50" cy="50" r="10" fill="#A3E635" />
+          </svg>
+        </div>
+
+        <div class="arch-card card-trafico">
+          <h3>📢 Tráfico</h3>
+          <span class="badge b-vis">Visibilidad</span>
+          <ul class="arch-list">
+            <li>Google, YouTube</li>
+            <li>Ads segmentadas</li>
+            <li>Email estratégico</li>
+          </ul>
+        </div>
+
+        <div class="arch-card card-web">
+          <h3>💻 Web</h3>
+          <span class="badge b-cap">Captación</span>
+          <ul class="arch-list">
+            <li>Sitio para captar leads</li>
+            <li>Segmentación por área</li>
+            <li>Contenidos relevantes</li>
+          </ul>
+        </div>
+
+        <div class="arch-card card-crm">
+          <h3>🗄️ CRM</h3>
+          <span class="badge b-ges">Gestión</span>
+          <ul class="arch-list">
+            <li>Registro de prospectos</li>
+            <li>Alertas y seguimiento</li>
+            <li>Integración comercial</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="conditions-section">
+    <div class="conditions-container">
+      <h2 class="section-title conditions-title">Condiciones para activar el canal</h2>
+
+      <div class="diagram-viewport">
+        <svg class="arrows-canvas" viewBox="0 0 1000 750" aria-hidden="true">
+          <defs>
+            <marker id="arrowhead-light" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#CBD5E1" />
+            </marker>
+          </defs>
+          <path class="arrow-path" d="M470,290 Q400,200 330,220" marker-end="url(#arrowhead-light)" />
+          <path class="arrow-path" d="M530,290 Q600,200 670,220" marker-end="url(#arrowhead-light)" />
+          <path class="arrow-path" d="M440,310 Q350,330 310,480" marker-end="url(#arrowhead-light)" />
+          <path class="arrow-path" d="M560,310 Q650,330 690,480" marker-end="url(#arrowhead-light)" />
+          <path class="arrow-path" d="M470,360 Q400,450 330,680" marker-end="url(#arrowhead-light)" />
+          <path class="arrow-path" d="M530,360 Q600,450 670,680" marker-end="url(#arrowhead-light)" />
+        </svg>
+
+        <div class="core-node">
+          <div class="gear-icon spinning">
+            <i class="fa-solid fa-gear"></i>
+            <div class="gear-center-dot"></div>
+          </div>
+          <div class="core-text">
+            <span>Sistema operativo</span>
+            <span>del canal</span>
+          </div>
+        </div>
+
+        <div class="cond-card pos-tech">
+          <div class="card-header"><i data-lucide="laptop" class="icon-lucide"></i><h3>Tecnología</h3></div>
+          <ul class="check-list"><li>Conexión de herrramientas</li><li>Automatización</li><li>Integración CRM / WhatsApp / SAP</li></ul>
+        </div>
+        <div class="cond-card pos-inter">
+          <div class="card-header"><i data-lucide="globe" class="icon-lucide"></i><h3>Internacional</h3></div>
+          <ul class="check-list"><li>Mercados objetivo</li><li>Condiciones de exportación</li><li>Proceso comercial exterior</li></ul>
+        </div>
+        <div class="cond-card pos-qual">
+          <div class="card-header"><i data-lucide="shopping-bag" class="icon-lucide"></i><h3>Calidad</h3></div>
+          <ul class="check-list"><li>Políticas de venta</li><li>Términos y condiciones</li><li>Facturación operativa</li></ul>
+        </div>
+        <div class="cond-card pos-fin">
+          <div class="card-header"><i data-lucide="trending-up" class="icon-lucide"></i><h3>Financiera</h3></div>
+          <ul class="check-list"><li>Costos y márgenes</li><li>Condiciones comerciales</li><li>Base de precios</li></ul>
+        </div>
+        <div class="cond-card pos-vend">
+          <div class="card-header"><i data-lucide="layout-grid" class="icon-lucide"></i><h3>Vending</h3></div>
+          <ul class="check-list"><li>Modelo de venta</li><li>Flujo comercial</li><li>Requerimients específicos</li></ul>
+        </div>
+        <div class="cond-card pos-commercial">
+          <div class="card-header"><i data-lucide="file-text" class="icon-lucide"></i><h3>Comercial</h3></div>
+          <ul class="check-list"><li>Estrategia de atención</li><li>Protocolos de seguimiento</li><li>Indicadores de conversión</li></ul>
+        </div>
+      </div>
+
+      <p class="footer-note">Sin estas condiciones, el canal no escala.</p>
+    </div>
+  </section>
+
+  <footer class="idea-owner">Propietario de la idea: <strong>Fabian Fernandez</strong></footer>
 
   <script>
-    function openModal(id){
-      const modal = document.getElementById(id);
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(id){
-      const modal = document.getElementById(id);
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = 'auto';
-    }
-
-    function animateValue(el, start, end, duration, prefix = '', suffix = '', decimals = 0) {
-      const startTime = performance.now();
-      function update(now) {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        const value = start + (end - start) * ease;
-        el.textContent = `${prefix}${value.toFixed(decimals)}${suffix}`;
-        if (progress < 1) requestAnimationFrame(update);
-      }
-      requestAnimationFrame(update);
-    }
-
-    function animateMoneyMillions(el, end, duration) {
-      const startTime = performance.now();
-      function update(now) {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        const value = end * ease;
-        el.textContent = `$ ${value.toFixed(1)}M`;
-        if (progress < 1) requestAnimationFrame(update);
-      }
-      requestAnimationFrame(update);
-    }
-
-    function animateInteger(el, end, duration) {
-      const startTime = performance.now();
-      function update(now) {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        const value = Math.round(end * ease);
-        el.textContent = value.toLocaleString('es-CO');
-        if (progress < 1) requestAnimationFrame(update);
-      }
-      requestAnimationFrame(update);
-    }
-
-    function setBar(id, width) {
-      const el = document.getElementById(id);
-      const target = width;
-      const startTime = performance.now();
-      function update(now){
-        const progress = Math.min((now - startTime) / 1600, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        el.style.width = (target * ease) + '%';
-        if(progress < 1) requestAnimationFrame(update);
-      }
-      requestAnimationFrame(update);
-    }
-
-    window.addEventListener('load', () => {
-      animateMoneyMillions(document.getElementById('kpiInvestment'), 38.5, 1700);
-      animateMoneyMillions(document.getElementById('kpiSales'), 164.2, 1800);
-      animateInteger(document.getElementById('kpiLeads'), 2846, 1800);
-      animateValue(document.getElementById('kpiRoas'), 0, 4.3, 1700, '', 'x', 1);
-      animateValue(document.getElementById('kpiRoi'), 0, 327, 1800, '', '%', 0);
-
-      animateMoneyMillions(document.getElementById('platformMeta'), 58.4, 1600);
-      animateMoneyMillions(document.getElementById('platformGoogle'), 42.1, 1650);
-      animateMoneyMillions(document.getElementById('platformWhats'), 36.8, 1700);
-      animateMoneyMillions(document.getElementById('platformMkt'), 26.9, 1750);
-
-      setBar('barMeta', 81);
-      setBar('barGoogle', 63);
-      setBar('barWhats', 52);
-      setBar('barMkt', 38);
-
-      animateValue(document.getElementById('geoBogota'), 0, 37, 1600, '', '%', 0);
-      animateValue(document.getElementById('geoMedellin'), 0, 24, 1650, '', '%', 0);
-      animateValue(document.getElementById('geoCali'), 0, 19, 1700, '', '%', 0);
-      animateValue(document.getElementById('geoCosta'), 0, 20, 1750, '', '%', 0);
-
-      animateInteger(document.getElementById('funnelLeads'), 2846, 1700);
-      animateInteger(document.getElementById('funnelQualified'), 1185, 1750);
-      animateInteger(document.getElementById('funnelPassed'), 624, 1800);
-      animateInteger(document.getElementById('funnelSales'), 183, 1850);
-
-      setBar('funnelBarLeads', 100);
-      setBar('funnelBarQualified', 66);
-      setBar('funnelBarPassed', 34);
-      setBar('funnelBarSales', 18);
-    });
+    lucide.createIcons();
   </script>
 </body>
 </html>
